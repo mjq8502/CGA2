@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:id="@+id/CourseTeeDetails_TextView_Name"
+        android:text="Course Name Here"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <Spinner
+        android:id="@+id/CourseTeeDetails_Spinner_Tee"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CourseTeeDetails_TextView_Name" />
+    <LinearLayout
+        android:id="@+id/CourseTeeDetails_LinearLayout_ReportedYards"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/CourseTeeDetails_Spinner_Tee">
+        <TextView
+            android:id="@+id/CourseTeeDetails_TextView_ReportedYards"
+            android:text="Reported Yards"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:textColor="@android:color/white" />
+        <EditText
+            android:id="@+id/CourseTeeDetails_EditText_ReportedYards"
+            android:text="1801"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/CourseTeeDetails_Button_Save"
+        android:text="Save"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CourseTeeDetails_LinearLayout_ReportedYards" />
+</RelativeLayout>

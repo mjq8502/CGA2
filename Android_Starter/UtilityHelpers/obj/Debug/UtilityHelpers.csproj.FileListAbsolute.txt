@@ -1,0 +1,5 @@
+C:\CompleteGolfApp\Android_Starter\UtilityHelpers\bin\Debug\UtilityHelpers.dll
+C:\CompleteGolfApp\Android_Starter\UtilityHelpers\bin\Debug\UtilityHelpers.pdb
+C:\CompleteGolfApp\Android_Starter\UtilityHelpers\obj\Debug\UtilityHelpers.dll
+C:\CompleteGolfApp\Android_Starter\UtilityHelpers\obj\Debug\UtilityHelpers.pdb
+C:\CompleteGolfApp\Android_Starter\UtilityHelpers\obj\Debug\UtilityHelpers.csprojResolveAssemblyReference.cache

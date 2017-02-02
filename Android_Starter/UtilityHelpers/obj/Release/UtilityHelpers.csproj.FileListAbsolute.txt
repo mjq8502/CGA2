@@ -1,0 +1,5 @@
+C:\CompleteGolfApp\Android_Starter\UtilityHelpers\bin\Release\UtilityHelpers.dll
+C:\CompleteGolfApp\Android_Starter\UtilityHelpers\bin\Release\UtilityHelpers.pdb
+C:\CompleteGolfApp\Android_Starter\UtilityHelpers\obj\Release\UtilityHelpers.csprojResolveAssemblyReference.cache
+C:\CompleteGolfApp\Android_Starter\UtilityHelpers\obj\Release\UtilityHelpers.dll
+C:\CompleteGolfApp\Android_Starter\UtilityHelpers\obj\Release\UtilityHelpers.pdb

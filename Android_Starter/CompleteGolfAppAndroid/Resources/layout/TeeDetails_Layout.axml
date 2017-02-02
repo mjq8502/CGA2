@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:id="@+id/TeesDetail_TextView_TeeLabel"
+        android:text="Tee:"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/TeesDetail_EditText_TeeValue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TeesDetail_TextView_TeeLabel"
+        android:imeOptions="actionNext"
+        android:maxLines="1" />
+    <Button
+        android:id="@+id/TeesDetail_Button_Save"
+        android:text="Save"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TeesDetail_EditText_TeeValue" />
+    <Button
+        android:id="@+id/TeesDetail_Button_Delete"
+        android:text="Delete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TeesDetail_Button_Save" />
+    <Button
+        android:id="@+id/TeesDetail_Button_Cancel"
+        android:text="Cancel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TeesDetail_Button_Delete" />
+</RelativeLayout>

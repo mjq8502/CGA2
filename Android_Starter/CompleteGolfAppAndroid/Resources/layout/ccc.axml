@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:id="@+id/CourseName"
+        android:text="Course Name Here"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/CourseNameValue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/CourseCity"
+        android:text="Course City Here"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    <EditText 
+        android:id="@+id/CourseCityValue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/SaveCourseButton"
+        android:text="Save Course"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+        <!--android:layout_below="@+id/CourseCityValue" />-->
+  <ListView
+        android:id="@+id/CourseDetailsHolesListView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SaveCourseButton" />
+  <Button 
+        android:id="@+id/CourseDetailsAddHole"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+        <!--android:layout_below="@+id/CourseDetailsHolesListView" />-->
+    <Button
+        android:id="@+id/CoursesCancelDeleteButton"
+        android:text="Cancel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+        <!--android:layout_below="@+id/NewCourseButton" />-->
+</RelativeLayout>

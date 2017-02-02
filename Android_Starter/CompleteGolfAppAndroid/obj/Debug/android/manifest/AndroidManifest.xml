@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.xamarin.samples.taskyandroid">
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <application android:label="Tasky" android:debuggable="true" android:icon="@drawable/icon" android:name="android.app.Application" android:allowBackup="true">
+    <activity android:label="CourseDetailsEdit" android:name="md5920006a2317fcce767a459ad49adf9ee.CourseDetailsEdit_Code" />
+    <activity android:label="CourseTeeDetails_Code" android:name="md5920006a2317fcce767a459ad49adf9ee.CourseTeeDetails_Code" />
+    <activity android:icon="@drawable/icon" android:label="CompleteGolfApp5" android:name="md5920006a2317fcce767a459ad49adf9ee.Home_Code">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:label="CourseDetailsScreen" android:name="md5920006a2317fcce767a459ad49adf9ee.CourseDetailsView_Code" />
+    <activity android:label="Courses" android:name="md5920006a2317fcce767a459ad49adf9ee.Courses_Code" />
+    <activity android:label="TeeDetailsScreen" android:name="md5920006a2317fcce767a459ad49adf9ee.TeeDetails_Code" />
+    <activity android:label="TeesScreen3" android:name="md5920006a2317fcce767a459ad49adf9ee.Tees_Code" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.xamarin.samples.taskyandroid.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.com.xamarin.samples.taskyandroid" />
+      </intent-filter>
+    </receiver>
+  </application>
+  <uses-sdk android:targetSdkVersion="23" android:minSdkVersion="23" />
+</manifest>

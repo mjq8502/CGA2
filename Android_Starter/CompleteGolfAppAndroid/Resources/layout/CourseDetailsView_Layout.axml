@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<!--<TextView
+        android:id="@+id/CourseDetailsView_TextView_NameLabel"
+        android:text="Course Name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />-->
+    <TextView
+        android:id="@+id/CourseDetailsView_TextView_Name"
+        android:text="Enter Course Name Here"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+<!--<TextView
+        android:id="@+id/CourseDetailsView_TextView_CityLabel"
+        android:text="City"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CourseDetailsView_TextView_Name" />-->
+    <TextView
+        android:id="@+id/CourseDetailsView_TextView_City"
+        android:text="Enter City Name Here"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CourseDetailsView_TextView_Name" />
+    <ListView
+        android:id="@+id/CourseDetailsView_ListView_TeeSummary"
+        android:layout_width="fill_parent"
+        android:layout_height="120dp"
+        android:layout_below="@+id/CourseDetailsView_TextView_City" />
+    <Button
+        android:id="@+id/CourseDetailsView_Button_AddTee"
+        android:text="Add Tee"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CourseDetailsView_ListView_TeeSummary" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/CourseDetailsView_ViewPager_Holes"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/CourseDetailsView_Button_AddTee">
+        <android.support.v4.view.PagerTitleStrip
+            android:id="@+id/CourseDetailsView_PagerTitleStrip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textColor="#fff" />
+    </android.support.v4.view.ViewPager>
+    <LinearLayout
+        android:id="@+id/CourseDetailsView_LinearLayout_HolesPar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/CourseDetailsView_ViewPager_Holes">
+        <TextView
+            android:id="@+id/CourseDetailsView_TextView_HolesLabel"
+            android:text="Holes"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:textColor="@android:color/white" />
+        <TextView
+            android:id="@+id/CourseDetailsView_TextView_Holes"
+            android:text="9"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:textColor="@android:color/white" />
+        <TextView
+            android:id="@+id/CourseDetailsView_TextView_ParLabel"
+            android:text=", Par "
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:textColor="@android:color/white" />
+        <TextView
+            android:id="@+id/CourseDetailsView_TextView_Par"
+            android:text="30"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+<!--<Button
+        android:id="@+id/CourseDetailsView_Button_Save"
+        android:text="Save"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CourseDetailsView_LinearLayout_HolesPar" />-->
+</RelativeLayout>
