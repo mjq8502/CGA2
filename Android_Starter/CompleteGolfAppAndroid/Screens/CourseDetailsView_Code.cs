@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Widget;
 using CompleteGolfAppAndroid;
 using Tasky.Core;
+
 using System.Collections.Generic;
 using Android.Support.V4.View;
 using CompleteGolfAppAndroid.Adapters;
@@ -29,7 +30,7 @@ namespace CompleteGolfAppAndroid.Screens
         ViewPager holesViewPager;
         TreeCatalog treeCatalog;
         FlashCardDeck flashCards;
-        ViewPager viewPager;
+        //ViewPager viewPager;
 
         CompleteGolfAppAndroid.Adapters.CourseTeeListAdapter courseTeeListAdapter;
         ListView courseTees_ListView;
@@ -83,7 +84,6 @@ namespace CompleteGolfAppAndroid.Screens
                 };
             }
 
-            //IEnumerable<CourseHoleData> chd = HoleManager.GetCourseHoleData(course.ID);
 
             #region courseHolesByHole
             //var courseHolesByHole = new CourseHoleByNumberListList
@@ -117,14 +117,39 @@ namespace CompleteGolfAppAndroid.Screens
             //};
             #endregion
 
-            CourseHoleByNumberListList courseHolesByHole = HoleManager.GetCourseHolesByHole(course.ID);
+            Tasky.GlobalEntities.courseHoleByNumberListList = HoleManager.GetCourseHolesByHole(course.ID);
 
-            viewPager = FindViewById<ViewPager>(Resource.Id.CourseDetailsView_ViewPager_Holes);
+            if (Tasky.GlobalEntities.courseHoleByNumberListList.NumHoles < course.Holes)
+            {
+                for (int x = Tasky.GlobalEntities.courseHoleByNumberListList.NumHoles + 1; x < course.Holes + 1; x++)
+                {
+                    Tasky.CourseHoleByNumberList newHole = new Tasky.CourseHoleByNumberList();
+                    newHole.HoleNumber = x;
+                    newHole.CourseHoles = new List<CourseHole>();
+                    foreach(var z in Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists.FirstOrDefault().CourseHoles)
+                    {
+                        CourseHole ch = new CourseHole();
+                        ch.CourseTeeID = z.CourseTeeID;
+                        ch.ActualYardage = 0;
+                        ch.CourseReportedYardage = 0;
+                        ch.HoleNumber = x;
+                        ch.Par = 0;
+                        ch.TeeName = z.TeeName;
+                        newHole.CourseHoles.Add(ch);
+                    }
+                    Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists.Add(newHole);
 
-            HoleDetailsAdapter hdAdapter = new HoleDetailsAdapter(SupportFragmentManager, courseHolesByHole);
-            viewPager.Adapter = hdAdapter; 
 
-            var z = 5;
+
+                }
+                 
+            }
+
+            holesViewPager = FindViewById<ViewPager>(Resource.Id.CourseDetailsView_ViewPager_Holes);
+
+            HoleDetailsAdapter hdAdapter = new HoleDetailsAdapter(SupportFragmentManager);
+            holesViewPager.Adapter = hdAdapter; 
+
         }
 
 
@@ -152,11 +177,6 @@ namespace CompleteGolfAppAndroid.Screens
             course.City = courseCityValue.Text;
 
             CourseManager.SaveCourse(course);
-            //task.Name = nameTextEdit.Text;
-            //task.Notes = notesTextEdit.Text;
-            //TaskManager.SaveTask(task);
-            //.TeeName = teeTextEdit.Text;
-            //TeeManager.SaveTee(tee);
 
             Finish();
         }

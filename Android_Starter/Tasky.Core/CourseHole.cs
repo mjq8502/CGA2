@@ -64,40 +64,40 @@ namespace Tasky.Core
 
     }
 
-    public class CourseHoleByNumberListList
-    {
-        public CourseHoleByNumberListList()
-        {
+    //public class CourseHoleByNumberListList
+    //{
+    //    public CourseHoleByNumberListList()
+    //    {
 
-        }
-        public List<CourseHoleByNumberList> CourseHoleDataLists { get; set; }
+    //    }
+    //    public List<CourseHoleByNumberList> CourseHoleDataLists { get; set; }
 
-        // Returns the number of holes in the course:
-        public int NumHoles { get { return CourseHoleDataLists.Count; } }
+    //    // Returns the number of holes in the course:
+    //    public int NumHoles { get { return CourseHoleDataLists.Count; } }
 
-    }
+    //}
 
-    public class CourseHoleByNumberList : ISerializable
-    {
-        public CourseHoleByNumberList()
-        {
+    //public class CourseHoleByNumberList : ISerializable
+    //{
+    //    public CourseHoleByNumberList()
+    //    {
 
-        }
-        public int HoleNumber { get; set; }
-        public List<CourseHole> CourseHoles { get; set; }
+    //    }
+    //    public int HoleNumber { get; set; }
+    //    public List<CourseHole> CourseHoles { get; set; }
 
-        IntPtr IJavaObject.Handle
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+    //    IntPtr IJavaObject.Handle
+    //    {
+    //        get
+    //        {
+    //            throw new NotImplementedException();
+    //        }
+    //    }
 
-        void IDisposable.Dispose()
-        {
-            throw new NotImplementedException();
-        }
-    }
+    //    void IDisposable.Dispose()
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
 
 }

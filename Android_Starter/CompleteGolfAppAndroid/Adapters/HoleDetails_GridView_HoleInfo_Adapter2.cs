@@ -18,7 +18,6 @@ namespace CompleteGolfAppAndroid.Adapters
     class HoleDetails_GridView_HoleInfo_Adapter2 : BaseAdapter<string>
     {
         Context context;
-        //CourseHoleByNumberList courseHoleByNumberList;
         private DataTable itemTable = null;
 
         public HoleDetails_GridView_HoleInfo_Adapter2(Context c, DataTable ItemTable) : base()
@@ -86,7 +85,8 @@ namespace CompleteGolfAppAndroid.Adapters
 
             };
 
-
+            var xx = Tasky.GlobalEntities.testINT;
+            var zz = Tasky.GlobalEntities.courseHoleByNumberListList;
             //Finally return the view 
             return txtName;
         }

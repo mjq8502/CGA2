@@ -15,9 +15,7 @@ namespace CompleteGolfAppAndroid
 {
     public class HoleDetailsFragment : Android.Support.V4.App.Fragment
     {
-        private static string FLASH_CARD_QUESTION = "card_question";
         private static string HOLE_YARDS = "hy";
-        private static string FLASH_CARD_ANSWER = "card_answer";
         //private static CourseHoleByNumberList chbnl;
         
 
@@ -26,7 +24,7 @@ namespace CompleteGolfAppAndroid
             
         }
 
-        public static HoleDetailsFragment newInstance(CourseHoleByNumberList holesByNumber)
+        public static HoleDetailsFragment newInstance(Tasky.CourseHoleByNumberList holesByNumber)
         {
             HoleDetailsFragment fragment = new HoleDetailsFragment();
             Bundle args = new Bundle();
@@ -43,7 +41,7 @@ namespace CompleteGolfAppAndroid
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             string yards = Arguments.GetString(HOLE_YARDS, "");
-            var courseHoleByNumberList = JsonConvert.DeserializeObject<CourseHoleByNumberList>(Arguments.GetString("holesByNumber"));
+            var courseHoleByNumberList = JsonConvert.DeserializeObject<Tasky.CourseHoleByNumberList>(Arguments.GetString("holesByNumber"));
             View view = inflater.Inflate(Resource.Layout.HoleDetailsFragment_Layout, container, false);
 
             var gridview = (GridView)view.FindViewById<GridView>(Resource.Id.HoleDetails_GridView_HoleInfo);
@@ -67,21 +65,9 @@ namespace CompleteGolfAppAndroid
             
             gridview.Adapter = new HoleDetails_GridView_HoleInfo_Adapter2(context, itemTable);
 
-            //gridview.ItemClick += Gridview_ItemClick;
-
-            //gridview.Click += Gridview_Click;
-
             return view;
         }
 
-        private void Gridview_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
-            var u = 7;
-        }
 
-        private void Gridview_Click(object sender, EventArgs e)
-        {
-            var y = 8;
-        }
     }
 }

@@ -9,43 +9,31 @@ namespace CompleteGolfAppAndroid
 {
     class HoleDetailsAdapter : FragmentPagerAdapter
     {
-        //public FlashCardDeck flashCardDeck;
 
-        public CourseHoleByNumberListList courseHoles;
-
-        //public HoleDetailsAdapter(Android.Support.V4.App.FragmentManager fm, FlashCardDeck flashCards)
-        //    : base(fm)
-        //{
-        //    this.flashCardDeck = flashCards;
-        //}
-
-        public HoleDetailsAdapter(Android.Support.V4.App.FragmentManager fm, CourseHoleByNumberListList courseHoles)
+        public HoleDetailsAdapter(Android.Support.V4.App.FragmentManager fm)
             : base(fm)
         {
-            this.courseHoles = courseHoles;
+            //this.courseHoles = courseHoles;
         }
 
         public override int Count
         {
-            //get { return flashCardDeck.NumCards; }
-            get { return courseHoles.NumHoles; }
+            get { return Tasky.GlobalEntities.courseHoleByNumberListList.NumHoles; }
         }
 
         public override Android.Support.V4.App.Fragment GetItem(int position)
         {
-            //return (Android.Support.V4.App.Fragment)
-            //    FlashCardFragment.newInstance(
-            //        flashCardDeck[position].Problem, flashCardDeck[position].Answer);
 
-            var x = courseHoles.CourseHoleDataLists.ElementAt(position);
+            var x = Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists.ElementAt(position);
 
             return (Android.Support.V4.App.Fragment)
-                HoleDetailsFragment.newInstance(courseHoles.CourseHoleDataLists.ElementAt(position));
+                HoleDetailsFragment.newInstance(Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists.ElementAt(position));
+
         }
 
         public override Java.Lang.ICharSequence GetPageTitleFormatted(int position)
         {
-            return new Java.Lang.String("Hole " + (position + 1) + " , Par " + courseHoles.CourseHoleDataLists[position].CourseHoles.FirstOrDefault().Par);
+            return new Java.Lang.String("Hole " + (position + 1) + " , Par " + Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists[position].CourseHoles.FirstOrDefault().Par);
         }
     }
 }

@@ -60,6 +60,7 @@
     <Compile Include="CourseManager.cs" />
     <Compile Include="CourseTee.cs" />
     <Compile Include="CourseTeeManager.cs" />
+    <Compile Include="GlobalEntities.cs" />
     <Compile Include="Hole.cs" />
     <Compile Include="HoleManager.cs" />
     <Compile Include="Task.cs" />

@@ -8,8 +8,7 @@ C:\CompleteGolfApp\Android_Starter\Tasky.Core\obj\Release\Tasky.Core.Anroid.dll
 C:\CompleteGolfApp\Android_Starter\Tasky.Core\obj\Release\android\bin\Tasky.Core.Anroid.apk
 C:\CompleteGolfApp\Android_Starter\Tasky.Core\obj\Release\R.cs.flag
 C:\CompleteGolfApp\Android_Starter\Tasky.Core\obj\Release\uploadflags.txt
-C:\CompleteGolfApp\Android_Starter\Tasky.Core\obj\Release\Tasky.Core.Anroid.dll.mdb
-C:\CompleteGolfApp\Android_Starter\Tasky.Core\bin\Release\Tasky.Core.Anroid.dll.mdb
+C:\CompleteGolfApp\Android_Starter\Tasky.Core\obj\Release\Tasky.Core.Android.csprojResolveAssemblyReference.cache
 C:\CompleteGolfApp\Android_Starter\Tasky.Core\obj\Release\Tasky.Core.Anroid.dll.mdb
 C:\CompleteGolfApp\Android_Starter\Tasky.Core\bin\Release\Tasky.Core.Anroid.dll.mdb
 C:\CompleteGolfApp\Android_Starter\Tasky.Core\obj\Release\Tasky.Core.Anroid.dll.mdb
