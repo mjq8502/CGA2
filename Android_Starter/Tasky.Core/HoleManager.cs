@@ -70,7 +70,10 @@ namespace Tasky.Core
 
         }
 
-
+        public static int CreateCourseHolesForTee(int courseTeeID, int numberOfHoles)
+        {
+            return CompleteGolfAppRepositoryADO.CreateCourseHolesForTee(courseTeeID, numberOfHoles);
+        }
 
         //public static int SaveCourse(Course item)
         //{

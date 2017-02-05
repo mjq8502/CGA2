@@ -119,6 +119,7 @@ namespace CompleteGolfAppAndroid.Screens
 
             Tasky.GlobalEntities.courseHoleByNumberListList = HoleManager.GetCourseHolesByHole(course.ID);
 
+            // Get rid of this when the new course create procedure populates the initial hole info for the course.
             if (Tasky.GlobalEntities.courseHoleByNumberListList.NumHoles < course.Holes)
             {
                 for (int x = Tasky.GlobalEntities.courseHoleByNumberListList.NumHoles + 1; x < course.Holes + 1; x++)
@@ -138,9 +139,6 @@ namespace CompleteGolfAppAndroid.Screens
                         newHole.CourseHoles.Add(ch);
                     }
                     Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists.Add(newHole);
-
-
-
                 }
                  
             }

@@ -130,6 +130,11 @@ namespace Tasky.Core
         {
             return me.db.GetCourseHoleData(courseID);
         }
+
+        public static int CreateCourseHolesForTee(int courseTeeID, int numberOfHoles)
+        {
+            return me.db.CreateCourseHolesForTee(courseTeeID, numberOfHoles);
+        }
     }
 }
 

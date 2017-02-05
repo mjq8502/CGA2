@@ -83,13 +83,11 @@ namespace CompleteGolfAppAndroid.Screens
                 addTeeButton.Click += delegate {
 
 
-                        var activity2 = new Intent(this, typeof(CourseTeeDetails_Code));
-                        activity2.PutExtra("CourseName", courseNameEditText.Text);
-                        activity2.PutExtra("CourseID", course.ID);
-                        StartActivity(activity2);
-
-
-
+                    var activity2 = new Intent(this, typeof(CourseTeeDetails_Code));
+                    activity2.PutExtra("CourseName", courseNameEditText.Text);
+                    activity2.PutExtra("CourseID", course.ID);
+                    activity2.PutExtra("CourseHoles", course.Holes);
+                    StartActivity(activity2);
                 };
 
             }

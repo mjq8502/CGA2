@@ -29,6 +29,8 @@ namespace CompleteGolfAppAndroid.Screens
 
         Tee selectedTee;
 
+        private int numberOfHoles;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -39,6 +41,7 @@ namespace CompleteGolfAppAndroid.Screens
 
             course.CourseName = Intent.GetStringExtra("CourseName") ?? "Do data, why";
             course.ID = Intent.GetIntExtra("CourseID", 0);
+            numberOfHoles = Intent.GetIntExtra("CourseHoles", 0);
 
             courseTee.CourseID = course.ID;
 
@@ -70,8 +73,6 @@ namespace CompleteGolfAppAndroid.Screens
             int pos = e.Position;
             selectedTee = tees.ElementAt<Tee>(pos);    
 
-            //string toast = string.Format("The planet is {0}", spinner.GetItemAtPosition(e.Position));
-            //Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
 
         void Save()
@@ -86,7 +87,12 @@ namespace CompleteGolfAppAndroid.Screens
 
             courseTee.TeeID = selectedTee.ID;
 
-            CourseTeeManager.SaveCourseTee(courseTee);
+            int result = CourseTeeManager.SaveCourseTee(courseTee);
+            var courseTees = CourseTeeManager.GetCourseTees(course.ID);
+
+            var singleCourseTee = courseTees.Where(xx => xx.CourseID == course.ID).Where(yy => yy.TeeID == courseTee.TeeID).FirstOrDefault();
+
+            result = HoleManager.CreateCourseHolesForTee(singleCourseTee.ID, numberOfHoles);
 
             Finish();
         }

@@ -132,6 +132,7 @@ namespace Tasky.Core
             }
             
             t.TeeID = Convert.ToInt32(r["TeeID"]);
+            t.CourseID = Convert.ToInt32(r["CourseID"]);
             t.TeeName = r["TeeName"].ToString();
             if (r["CourseReportedYardage"] == System.DBNull.Value)
             {
@@ -502,7 +503,7 @@ namespace Tasky.Core
                 connection.Open();
                 using (var command = connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT ct._id, ct.TeeID, t.TeeName, ct.CourseReportedYardage "
+                    command.CommandText = "SELECT ct._id, ct.CourseID, ct.TeeID, t.TeeName, ct.CourseReportedYardage "
                                          + "FROM [CourseTees] ct, [Tees] t "
                                          + "WHERE ct.TeeID = t._id "
                                          + "AND ct.CourseID = ?" ;
@@ -564,22 +565,22 @@ namespace Tasky.Core
             return t;
         }
 
-        public int SaveCourseTee(CourseTee item)
+        public int SaveCourseTee(CourseTee courseTee)
         {
             int r;
             lock (locker)
             {
-                if (item.ID != 0)
+                if (courseTee.ID != 0)
                 {
                     connection = new SqliteConnection("Data Source=" + path);
                     connection.Open();
                     using (var command = connection.CreateCommand())
                     {
                         command.CommandText = "UPDATE [CourseTees] SET [CourseID] = ?, [TeeID] = ?, [CourseReportedYardage] = ? WHERE [_id] = ?;";
-                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = item.CourseID });
-                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = item.CourseReportedYardage });
-                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = item.TeeID });
-                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = item.ID });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTee.CourseID });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTee.CourseReportedYardage });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTee.TeeID });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTee.ID });
                         r = command.ExecuteNonQuery();
                     }
                     connection.Close();
@@ -592,9 +593,9 @@ namespace Tasky.Core
                     using (var command = connection.CreateCommand())
                     {
                         command.CommandText = "INSERT INTO [CourseTees] ([CourseID],[TeeID],[CourseReportedYardage]) VALUES (?,?,?)";
-                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = item.CourseID });
-                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = item.TeeID });
-                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = item.CourseReportedYardage });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTee.CourseID });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTee.TeeID });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTee.CourseReportedYardage });
                         r = command.ExecuteNonQuery();
                     }
                     connection.Close();
@@ -701,6 +702,39 @@ namespace Tasky.Core
                 connection.Close();
             }
             return tl;
+        }
+
+        public int CreateCourseHolesForTee(int courseTeeID, int numberOfHoles)
+        {
+            int r = 99;
+            int par = 0;
+            int courseReportedYardage = 0;
+            int actualYardage = 0;
+
+            lock (locker)
+            {
+
+                {
+                    connection = new SqliteConnection("Data Source=" + path);
+                    connection.Open();
+                    for (int holeNumber = 0; holeNumber < numberOfHoles; holeNumber++)
+                    {
+                        using (var command = connection.CreateCommand())
+                        {
+                            command.CommandText = "INSERT INTO [Holes] ([CourseTeeID],[HoleNumber],[Par],[CourseReportedYardage],[ActualYardage]) VALUES (?,?,?,?,?)";
+                            command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTeeID });
+                            command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = holeNumber });
+                            command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = par });
+                            command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseReportedYardage });
+                            command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = actualYardage });
+                            r = command.ExecuteNonQuery();
+                        }
+                    }
+                    connection.Close();
+                    return r;
+                }
+
+            }
         }
 
         //public CourseTee GetCourseTee(int id)
