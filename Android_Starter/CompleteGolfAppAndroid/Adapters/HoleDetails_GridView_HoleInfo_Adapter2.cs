@@ -12,6 +12,10 @@ using Android.Widget;
 using Tasky.Core;
 using Android.Graphics;
 using System.Data;
+using Android.Content.Res;
+using System.Threading;
+using Android.Views.InputMethods;
+using Android.Text;
 
 namespace CompleteGolfAppAndroid.Adapters
 {
@@ -19,6 +23,7 @@ namespace CompleteGolfAppAndroid.Adapters
     {
         Context context;
         private DataTable itemTable = null;
+        private EditText txtName;
 
         public HoleDetails_GridView_HoleInfo_Adapter2(Context c, DataTable ItemTable) : base()
         {
@@ -61,35 +66,54 @@ namespace CompleteGolfAppAndroid.Adapters
             var item = PositionToString(position);
 
             // find if we have a control for the cell, if not create it 
-            var txtName = convertView as EditText ?? new EditText(context);
+            txtName = convertView as EditText ?? new EditText(context);
 
 
             // if the row is a header give it a different colour 
             if (row == 0)
             {
-                txtName.SetBackgroundColor(new Color(0x0d, 0x12, 0xf5));
+                txtName.SetBackgroundColor(new Color(0x80, 0xff, 0x80));
                 txtName.SetTextColor(new Color(0x0, 0x0, 0x0));
             }
 
             txtName.Tag = "row=" + row.ToString() + "|" + "col=" + GetCol(position);
-
-
+            //txtName.Enabled = true;
+            
+            
             //Assign item's values to the various subviews 
             txtName.SetText(item, TextView.BufferType.Normal);
+            
+            txtName.Click += TxtName_Click;
 
-            txtName.Click += delegate {
-
-                var x = txtName.Text;
-                var z = itemTable;
-                var tg = txtName.Tag;
-
+            txtName.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
+            {
+                // This is hit, but only item[0] is ever seen.
+                var c = e.Text.ToString();
             };
+            
 
-            var xx = Tasky.GlobalEntities.testINT;
-            var zz = Tasky.GlobalEntities.courseHoleByNumberListList;
             //Finally return the view 
             return txtName;
         }
+
+        private void TxtName_Click(object sender, EventArgs e)
+        {
+            // This handler is hit.
+            var x = txtName.Text;
+            var z = itemTable;
+            var tg = txtName.Tag;
+            //ShowKeyboard(txtName);
+        }
+
+        //public static void ShowKeyboard(View pView)
+        //{
+        //    This keyboard does open ok.
+        //    pView.RequestFocus();
+
+        //    InputMethodManager inputMethodManager = Application.Context.GetSystemService(Context.InputMethodService) as InputMethodManager;
+        //    inputMethodManager.ShowSoftInput(pView, ShowFlags.Forced);
+        //    inputMethodManager.ToggleSoftInput(ShowFlags.Forced, HideSoftInputFlags.ImplicitOnly);
+        //}
 
 
         private int GetCol(int pos)

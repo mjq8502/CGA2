@@ -56,6 +56,8 @@ namespace CompleteGolfAppAndroid.Screens
             // set our layout to be the home screen
             SetContentView(Resource.Layout.CourseDetailsView_Layout);
 
+            
+
             // find all our controls
             courseNameValue = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_Name);
             courseCityValue = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_City);
@@ -118,30 +120,6 @@ namespace CompleteGolfAppAndroid.Screens
             #endregion
 
             Tasky.GlobalEntities.courseHoleByNumberListList = HoleManager.GetCourseHolesByHole(course.ID);
-
-            // Get rid of this when the new course create procedure populates the initial hole info for the course.
-            if (Tasky.GlobalEntities.courseHoleByNumberListList.NumHoles < course.Holes)
-            {
-                for (int x = Tasky.GlobalEntities.courseHoleByNumberListList.NumHoles + 1; x < course.Holes + 1; x++)
-                {
-                    Tasky.CourseHoleByNumberList newHole = new Tasky.CourseHoleByNumberList();
-                    newHole.HoleNumber = x;
-                    newHole.CourseHoles = new List<CourseHole>();
-                    foreach(var z in Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists.FirstOrDefault().CourseHoles)
-                    {
-                        CourseHole ch = new CourseHole();
-                        ch.CourseTeeID = z.CourseTeeID;
-                        ch.ActualYardage = 0;
-                        ch.CourseReportedYardage = 0;
-                        ch.HoleNumber = x;
-                        ch.Par = 0;
-                        ch.TeeName = z.TeeName;
-                        newHole.CourseHoles.Add(ch);
-                    }
-                    Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists.Add(newHole);
-                }
-                 
-            }
 
             holesViewPager = FindViewById<ViewPager>(Resource.Id.CourseDetailsView_ViewPager_Holes);
 

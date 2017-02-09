@@ -137,5 +137,7 @@ C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\obj\Debug\android\asse
 C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\obj\Debug\android\assets\Tasky.Core.Anroid.dll.mdb
+C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\obj\Debug\res\layout\holedetailsfragmentrow.xml
+C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\obj\Debug\res\layout\holedetailsfragment_layout2.xml
 C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\obj\Debug\CompleteGolfAppAndroid.dll.mdb
 C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\bin\Debug\CompleteGolfAppAndroid.dll.mdb
