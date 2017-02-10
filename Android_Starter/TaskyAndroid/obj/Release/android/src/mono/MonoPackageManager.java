@@ -99,8 +99,9 @@ class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
 		/* We need to ensure that "TaskyAndroid.dll" comes first in this list. */
 		"TaskyAndroid.dll",
-		"Tasky.Core.Anroid.dll",
+		"Newtonsoft.Json.dll",
 		"Xamarin.Android.Support.v4.dll",
+		"Tasky.Core.Anroid.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

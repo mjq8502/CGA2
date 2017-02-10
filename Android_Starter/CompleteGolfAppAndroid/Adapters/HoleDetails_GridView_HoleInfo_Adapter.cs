@@ -9,21 +9,31 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Java.Util;
 
 namespace CompleteGolfAppAndroid.Adapters
 {
     class HoleDetails_GridView_HoleInfo_Adapter : BaseAdapter
     {
-        Context context;
+        public List<Model> items;
+        Activity context;
+        TextView txtFirst;
+        TextView txtSecond;
 
-        public HoleDetails_GridView_HoleInfo_Adapter(Context c)
+        public HoleDetails_GridView_HoleInfo_Adapter(HoleDetailsFragment c)
         {
-            context = c;
-        }
+            context = c.Activity;
 
+            this.items = new List<Model>();
+            Model m = new Adapters.Model("Blue", "321");
+            items.Add(m);
+            m = new Adapters.Model("Red", "333");
+            items.Add(m);
+
+        }
         public override int Count
         {
-            get { return thumbIds.Length; }
+            get { return 98; }
         }
 
         public override Java.Lang.Object GetItem(int position)
@@ -39,41 +49,60 @@ namespace CompleteGolfAppAndroid.Adapters
         // create a new ImageView for each item referenced by the Adapter
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            ImageView imageView;
+            //var item = items[position];
 
-            if (convertView == null)
-            {  // if it's not recycled, initialize some attributes
-                imageView = new ImageView(context);
-                imageView.LayoutParameters = new GridView.LayoutParams(85, 85);
-                imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
-                imageView.SetPadding(8, 8, 8, 8);
-            }
-            else
+            View view = convertView;
+            if (view == null)
             {
-                imageView = (ImageView)convertView;
+                view = context.LayoutInflater.Inflate(Resource.Layout.HoleDetailsFragmentRow, null);
             }
 
-            imageView.SetImageResource(thumbIds[position]);
-            return imageView;
+            //var view = (convertView ??
+            //            context.LayoutInflater.Inflate(
+            //            Resource.Layout.HoleDetailsFragmentRow,
+            //            parent,
+            //            false)) as LinearLayout;
+
+            txtFirst = (EditText)view.FindViewById(Resource.Id.Tee_EditText);
+            txtSecond = (EditText)view.FindViewById(Resource.Id.Yards_EditText);
+
+            //txtFirst = (TextView)view.FindViewById(Resource.Id.Tee_TextView);
+            //txtSecond = (TextView)view.FindViewById(Resource.Id.Yards_TextView);
+
+            txtFirst.Text = "Hey";
+            txtSecond.Text = "hoo";
+
+
+            return view;
+            //return convertView;
         }
 
 
-        int[] thumbIds = {
-        Resource.Drawable.birch, Resource.Drawable.coconut,
-        Resource.Drawable.elm, Resource.Drawable.fir
-        ////Resource.Drawable.larch, Resource.Drawable.maple,
-        ////Resource.Drawable.oak, Resource.Drawable.pine,
-        ////        Resource.Drawable.birch, Resource.Drawable.coconut,
-        ////Resource.Drawable.elm, Resource.Drawable.fir,
-        ////Resource.Drawable.larch, Resource.Drawable.maple,
-        ////Resource.Drawable.oak, Resource.Drawable.pine,
-        ////        Resource.Drawable.birch, Resource.Drawable.coconut,
-        ////Resource.Drawable.elm, Resource.Drawable.fir,
-        ////Resource.Drawable.larch, Resource.Drawable.maple,
-        ////Resource.Drawable.oak, Resource.Drawable.pine
+    }
 
-    };
+    public class Model
+    {
+
+        private String Tee;
+        private String Yards;
+
+
+        public Model(String tee, String yards)
+        {
+            this.Tee = tee;
+            this.Yards = yards;
+
+        }
+
+        public String getsTee()
+        {
+            return Tee;
+        }
+
+        public String getYards()
+        {
+            return Yards;
+        }
     }
 }
-
     

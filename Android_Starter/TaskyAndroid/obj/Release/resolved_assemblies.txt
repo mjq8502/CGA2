@@ -5,10 +5,14 @@ C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\Syste
 C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\System.dll
 C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\System.Xml.dll
 C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\mscorlib.dll
-C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\Tasky.Core.Anroid.dll
+C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\Newtonsoft.Json.dll
 C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\Xamarin.Android.Support.v4.dll
+C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\Tasky.Core.Anroid.dll
 C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\System.Runtime.Serialization.dll
 C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\System.ServiceModel.Internals.dll
+C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\System.Xml.Linq.dll
+C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\Microsoft.CSharp.dll
+C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\Mono.CSharp.dll
 C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\Mono.Data.Sqlite.dll
 C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\System.Data.dll
 C:\CompleteGolfApp\Android_Starter\TaskyAndroid\obj\Release\android\assets\System.Numerics.dll

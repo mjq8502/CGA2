@@ -14,11 +14,11 @@ using Android.Graphics;
 
 namespace CompleteGolfAppAndroid
 {
-    public class HoleDetailsFragment : Android.Support.V4.App.ListFragment
+    public class HoleDetailsFragment : Fragment  //Android.Support.V4.App.ListFragment
     {
         private static string HOLE_YARDS = "hy";
         //private static CourseHoleByNumberList chbnl;
-        
+        HoleDetails_GridView_HoleInfo_Adapter listAdapter;
 
         public HoleDetailsFragment()
         {
@@ -34,15 +34,15 @@ namespace CompleteGolfAppAndroid
             args.PutString("holesByNumber", JsonConvert.SerializeObject(holesByNumber));
             //args.PutString(HOLE_YARDS, holesByNumber.CourseHoles[0].CourseReportedYardage.ToString());
 
-            fragment.Arguments = args;
+            //fragment.Arguments = args;
 
             return fragment;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            string yards = Arguments.GetString(HOLE_YARDS, "");
-            var courseHoleByNumberList = JsonConvert.DeserializeObject<Tasky.CourseHoleByNumberList>(Arguments.GetString("holesByNumber"));
+            //string yards = Arguments.GetString(HOLE_YARDS, "");
+            //var courseHoleByNumberList = JsonConvert.DeserializeObject<Tasky.CourseHoleByNumberList>(Arguments.GetString("holesByNumber"));
             View view = inflater.Inflate(Resource.Layout.HoleDetailsFragment_Layout2, container, false);
 
             //var listview = view.FindViewById<ListView>(Resource.Id.android:list);
@@ -56,20 +56,22 @@ namespace CompleteGolfAppAndroid
 
             List<string> stringList = new List<string>();
 
-            foreach ( var courseHole in courseHoleByNumberList.CourseHoles)
-            {
-                DataRow row = itemTable.NewRow();
-                row["Tee"] = courseHole.TeeName;
-                //row["ReportedYards"] = courseHole.CourseReportedYardage;
-                row["Yards"] = courseHole.ActualYardage;
-                itemTable.Rows.Add(row);
-                stringList.Add(courseHole.TeeName + "   " + courseHole.ActualYardage);
-            }
+            //foreach ( var courseHole in courseHoleByNumberList.CourseHoles)
+            //{
+            //    DataRow row = itemTable.NewRow();
+            //    row["Tee"] = courseHole.TeeName;
+            //    //row["ReportedYards"] = courseHole.CourseReportedYardage;
+            //    row["Yards"] = courseHole.ActualYardage;
+            //    itemTable.Rows.Add(row);
+            //    stringList.Add(courseHole.TeeName + "   " + courseHole.ActualYardage);
+            //}
 
             stringList.ToArray();
 
-            this.ListAdapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleSelectableListItem, stringList);
-
+            //this.ListAdapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleSelectableListItem, stringList);
+            //listAdapter = new Adapters.HoleDetails_GridView_HoleInfo_Adapter(this);
+            ListView client = view.FindViewById<ListView>(Resource.Id.HoleDetails_ListView);
+            client.Adapter = new HoleDetails_GridView_HoleInfo_Adapter(this);
             //listview.Adapter = new HoleDetails_GridView_HoleInfo_Adapter2(context, itemTable);
 
             return view;

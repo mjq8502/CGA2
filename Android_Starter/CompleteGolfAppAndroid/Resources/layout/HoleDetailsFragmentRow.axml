@@ -5,18 +5,32 @@
     android:layout_width="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/Tee_TextView"
+    <EditText
+        android:id="@+id/Tee_EditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="First"
-        android:layout_weight="1"></TextView>
+        android:layout_weight="1"></EditText>
+
+    <EditText
+        android:id="@+id/Yards_EditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Second"
+        android:layout_weight="1"></EditText>
+
+    <!--<TextView
+    android:id="@+id/Tee_TextView"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="First"
+    android:layout_weight="1"></TextView>
 
     <TextView
         android:id="@+id/Yards_TextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Second"
-        android:layout_weight="1"></TextView>
+        android:layout_weight="1"></TextView>-->
 
 </LinearLayout>
