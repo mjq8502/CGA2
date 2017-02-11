@@ -241,7 +241,7 @@ namespace CompleteGolfAppAndroid
 			public const int TeeListNameText = 2131034173;
 			
 			// aapt resource value: 0x7f050030
-			public const int Tee_EditText = 2131034160;
+			public const int Tee_TextView = 2131034160;
 			
 			// aapt resource value: 0x7f05003b
 			public const int TeesDetail_Button_Cancel = 2131034171;
@@ -268,7 +268,7 @@ namespace CompleteGolfAppAndroid
 			public const int Tees_TextView_Label = 2131034176;
 			
 			// aapt resource value: 0x7f050031
-			public const int Yards_EditText = 2131034161;
+			public const int Yards_TextView = 2131034161;
 			
 			// aapt resource value: 0x7f050026
 			public const int flash_card_question = 2131034150;

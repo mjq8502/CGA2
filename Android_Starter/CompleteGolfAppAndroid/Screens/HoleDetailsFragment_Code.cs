@@ -14,11 +14,11 @@ using Android.Graphics;
 
 namespace CompleteGolfAppAndroid
 {
-    public class HoleDetailsFragment : Fragment  //Android.Support.V4.App.ListFragment
+    public class HoleDetailsFragment : Fragment   //Android.Support.V4.App.ListFragment
     {
-        private static string HOLE_YARDS = "hy";
-        //private static CourseHoleByNumberList chbnl;
-        HoleDetails_GridView_HoleInfo_Adapter listAdapter;
+        private ListView _listView;
+        private string[] list;
+        private static Tasky.CourseHoleByNumberList chbnl;
 
         public HoleDetailsFragment()
         {
@@ -29,10 +29,10 @@ namespace CompleteGolfAppAndroid
         {
             HoleDetailsFragment fragment = new HoleDetailsFragment();
             Bundle args = new Bundle();
-
+            chbnl = holesByNumber;
+           
 
             args.PutString("holesByNumber", JsonConvert.SerializeObject(holesByNumber));
-            //args.PutString(HOLE_YARDS, holesByNumber.CourseHoles[0].CourseReportedYardage.ToString());
 
             fragment.Arguments = args;
 
@@ -41,7 +41,6 @@ namespace CompleteGolfAppAndroid
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            //string yards = Arguments.GetString(HOLE_YARDS, "");
             var courseHoleByNumberList = JsonConvert.DeserializeObject<Tasky.CourseHoleByNumberList>(Arguments.GetString("holesByNumber"));
             View view = inflater.Inflate(Resource.Layout.HoleDetailsFragment_Layout2, container, false);
 
@@ -49,52 +48,49 @@ namespace CompleteGolfAppAndroid
 
             DataTable itemTable = new DataTable();
             itemTable.Columns.Add("Tee", typeof(string));
-            //itemTable.Columns.Add("ReportedYards", typeof(string));
             itemTable.Columns.Add("Yards", typeof(string));
 
 
             List<string> stringList = new List<string>();
-
+            List<CourseHole> chList = new List<CourseHole>();
             foreach (var courseHole in courseHoleByNumberList.CourseHoles)
             {
                 DataRow row = itemTable.NewRow();
                 row["Tee"] = courseHole.TeeName;
-                //row["ReportedYards"] = courseHole.CourseReportedYardage;
                 row["Yards"] = courseHole.ActualYardage;
                 itemTable.Rows.Add(row);
                 stringList.Add(courseHole.TeeName + "|" + courseHole.ActualYardage);
+                chList.Add(courseHole);
             }
 
-            var sl = stringList.ToArray();
+            list = stringList.ToArray();
 
-            ListView client = view.FindViewById<ListView>(Resource.Id.HoleDetails_ListView);
-            client.Adapter = new HoleDetails_GridView_HoleInfo_Adapter(this, sl);
+            _listView = view.FindViewById<ListView>(Resource.Id.HoleDetails_ListView);
+            _listView.Adapter = new HoleDetails_GridView_HoleInfo_Adapter(this, chList);
 
-            client.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs e)
+            _listView.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs e)
             {
-
-                var selected = sl[e.Position];
+                var selected = courseHoleByNumberList.CourseHoles[e.Position];
+                Toast toast = Toast.MakeText(this.Context, "Item click " + selected.TeeName.ToString()
+                                                                + " " + selected.ActualYardage
+                                                                + " " + selected.CourseTeeID, Android.Widget.ToastLength.Short);
+                toast.Show();
+                
             };
 
-            client.ItemSelected += Client_ItemSelected;
+            _listView.ItemLongClick += _listView_ItemLongClick;
 
             return view;
         }
 
-        private void Client_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        private void _listView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
-            var x = 7;
-        }
+            var selected = list[e.Position];
+            Toast toast = Toast.MakeText(this.Context, "_listView_ItemLongClick " + selected.ToString(), Android.Widget.ToastLength.Short);
+            toast.Show();
+         }
 
-        //void OnSelection(object sender, SelectedItemChangedEventArgs e)
-        //{
-        //    if (e.SelectedItem == null)
-        //    {
-        //        return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
-        //    }
-        //    //DisplayAlert("Item Selected", e.SelectedItem.ToString(), "Ok");
-        //    //((ListView)sender).SelectedItem = null; //uncomment line if you want to disable the visual selection state.
-        //}
+
 
 
     }
