@@ -53,7 +53,6 @@ C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\bin\Release\System.Num
 C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\bin\Release\System.Runtime.Serialization.dll.mdb
 C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\bin\Release\System.ServiceModel.Internals.dll.mdb
 C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\bin\Release\System.Transactions.dll.mdb
-C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\bin\Release\System.Xml.dll.mdb
 C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\bin\Release\System.Xml.Linq.dll.mdb
 C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\obj\Release\android\assets\Java.Interop.dll.mdb
 C:\CompleteGolfApp\Android_Starter\CompleteGolfAppAndroid\obj\Release\android\assets\Microsoft.CSharp.dll.mdb

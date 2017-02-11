@@ -4,18 +4,18 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <application android:label="Tasky" android:debuggable="true" android:icon="@drawable/icon" android:name="android.app.Application" android:allowBackup="true">
-    <activity android:label="CourseDetailsEdit" android:name="md58299fcbb9c40110acc1e14e2c4616cd9.CourseDetailsEdit_Code" />
-    <activity android:label="CourseTeeDetails_Code" android:name="md58299fcbb9c40110acc1e14e2c4616cd9.CourseTeeDetails_Code" />
-    <activity android:icon="@drawable/icon" android:label="CompleteGolfApp5" android:name="md58299fcbb9c40110acc1e14e2c4616cd9.Home_Code">
+    <activity android:label="CourseDetailsEdit" android:name="md590adb1227554cc51267158cf1b5cbcb1.CourseDetailsEdit_Code" />
+    <activity android:label="CourseTeeDetails_Code" android:name="md590adb1227554cc51267158cf1b5cbcb1.CourseTeeDetails_Code" />
+    <activity android:icon="@drawable/icon" android:label="CompleteGolfApp5" android:name="md590adb1227554cc51267158cf1b5cbcb1.Home_Code">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:label="CourseDetailsScreen" android:name="md58299fcbb9c40110acc1e14e2c4616cd9.CourseDetailsView_Code" />
-    <activity android:label="Courses" android:name="md58299fcbb9c40110acc1e14e2c4616cd9.Courses_Code" />
-    <activity android:label="TeeDetailsScreen" android:name="md58299fcbb9c40110acc1e14e2c4616cd9.TeeDetails_Code" />
-    <activity android:label="TeesScreen3" android:name="md58299fcbb9c40110acc1e14e2c4616cd9.Tees_Code" />
+    <activity android:label="CourseDetailsScreen" android:name="md590adb1227554cc51267158cf1b5cbcb1.CourseDetailsView_Code" />
+    <activity android:label="Courses" android:name="md590adb1227554cc51267158cf1b5cbcb1.Courses_Code" />
+    <activity android:label="TeeDetailsScreen" android:name="md590adb1227554cc51267158cf1b5cbcb1.TeeDetails_Code" />
+    <activity android:label="TeesScreen3" android:name="md590adb1227554cc51267158cf1b5cbcb1.Tees_Code" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.xamarin.samples.taskyandroid.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">

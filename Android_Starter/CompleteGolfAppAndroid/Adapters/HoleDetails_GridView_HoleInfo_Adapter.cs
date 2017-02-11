@@ -19,10 +19,12 @@ namespace CompleteGolfAppAndroid.Adapters
         Activity context;
         TextView txtFirst;
         TextView txtSecond;
+        public string[] STR;
 
-        public HoleDetails_GridView_HoleInfo_Adapter(HoleDetailsFragment c)
+        public HoleDetails_GridView_HoleInfo_Adapter(HoleDetailsFragment c, string[] str) : base()
         {
             context = c.Activity;
+            STR = str;
 
             this.items = new List<Model>();
             Model m = new Adapters.Model("Blue", "321");
@@ -33,7 +35,7 @@ namespace CompleteGolfAppAndroid.Adapters
         }
         public override int Count
         {
-            get { return 98; }
+            get { return STR.Length;  }
         }
 
         public override Java.Lang.Object GetItem(int position)
@@ -49,19 +51,12 @@ namespace CompleteGolfAppAndroid.Adapters
         // create a new ImageView for each item referenced by the Adapter
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            //var item = items[position];
-
+            
             View view = convertView;
             if (view == null)
             {
                 view = context.LayoutInflater.Inflate(Resource.Layout.HoleDetailsFragmentRow, null);
             }
-
-            //var view = (convertView ??
-            //            context.LayoutInflater.Inflate(
-            //            Resource.Layout.HoleDetailsFragmentRow,
-            //            parent,
-            //            false)) as LinearLayout;
 
             txtFirst = (EditText)view.FindViewById(Resource.Id.Tee_EditText);
             txtSecond = (EditText)view.FindViewById(Resource.Id.Yards_EditText);
@@ -69,12 +64,15 @@ namespace CompleteGolfAppAndroid.Adapters
             //txtFirst = (TextView)view.FindViewById(Resource.Id.Tee_TextView);
             //txtSecond = (TextView)view.FindViewById(Resource.Id.Yards_TextView);
 
-            txtFirst.Text = "Hey";
-            txtSecond.Text = "hoo";
+            
+            string[] splited = STR[position].Split('|');
+
+            txtFirst.Text = splited[0];  
+            txtSecond.Text = splited[1];  
 
 
             return view;
-            //return convertView;
+
         }
 
 

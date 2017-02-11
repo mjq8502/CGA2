@@ -74,7 +74,7 @@ public final class R {
         public static final int TeeListActualYardageText=0x7f05003f;
         public static final int TeeListCourseReportedYardageText=0x7f05003e;
         public static final int TeeListNameText=0x7f05003d;
-        public static final int Tee_TextView=0x7f050030;
+        public static final int Tee_EditText=0x7f050030;
         public static final int TeesDetail_Button_Cancel=0x7f05003b;
         public static final int TeesDetail_Button_Delete=0x7f05003a;
         public static final int TeesDetail_Button_Save=0x7f050039;
@@ -83,7 +83,7 @@ public final class R {
         public static final int Tees_Button_AddTee=0x7f050042;
         public static final int Tees_ListView_TeeList=0x7f050041;
         public static final int Tees_TextView_Label=0x7f050040;
-        public static final int Yards_TextView=0x7f050031;
+        public static final int Yards_EditText=0x7f050031;
         public static final int flash_card_question=0x7f050026;
         public static final int lstItemCourse=0x7f050019;
         public static final int lstItemHole=0x7f050032;
