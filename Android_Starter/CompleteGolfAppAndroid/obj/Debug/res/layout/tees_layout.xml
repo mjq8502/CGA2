@@ -1,5 +1,0 @@
-<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"><TextView android:id="@+id/Tees_TextView_Label" android:layout_width="fill_parent" android:layout_height="80dp" android:text="Tees" /><ListView android:id="@+id/Tees_ListView_TeeList" android:layout_width="fill_parent" android:layout_height="160dp" /><Button android:id="@+id/Tees_Button_AddTee" android:text="Add Tee" android:layout_width="fill_parent" android:layout_height="wrap_content" /><!--<Button
-        android:id="@+id/Tees_Button_EditTee"
-        android:text="Edit Tee"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />--></LinearLayout>
