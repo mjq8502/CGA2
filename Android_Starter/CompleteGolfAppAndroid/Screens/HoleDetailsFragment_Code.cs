@@ -83,7 +83,7 @@ namespace CompleteGolfAppAndroid
 
         private void Client_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            var x = 5;
+            var x = 7;
         }
 
         //void OnSelection(object sender, SelectedItemChangedEventArgs e)
