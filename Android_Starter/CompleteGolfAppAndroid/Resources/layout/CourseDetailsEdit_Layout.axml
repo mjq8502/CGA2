@@ -73,13 +73,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/CourseDetailsEdit_LinearLayout_HolesPar" />
-      <Button
+    <Button
         android:id="@+id/CourseDetailsEdit_Button_Delete"
         android:text="Delete"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/CourseDetailsEdit_Button_Save" />
-      <Button
+    <Button
         android:id="@+id/CourseDetailsEdit_Button_Cancel"
         android:text="Cancel"
         android:layout_width="fill_parent"

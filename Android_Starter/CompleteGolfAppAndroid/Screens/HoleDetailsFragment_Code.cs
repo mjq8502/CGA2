@@ -86,9 +86,22 @@ namespace CompleteGolfAppAndroid
         private void _listView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
             var selected = list[e.Position];
-            Toast toast = Toast.MakeText(this.Context, "_listView_ItemLongClick " + selected.ToString(), Android.Widget.ToastLength.Short);
-            toast.Show();
-         }
+            //Toast toast = Toast.MakeText(this.Context, "_listView_ItemLongClick " + selected.ToString(), Android.Widget.ToastLength.Short);
+            //toast.Show();
+            FragmentTransaction ft = FragmentManager.BeginTransaction();
+            //Remove fragment else it will crash as it is already added to backstack
+            Fragment prev = FragmentManager.FindFragmentByTag("dialog");
+            if (prev != null)
+            {
+                ft.Remove(prev);
+            }
+            ft.AddToBackStack(null);
+            // Create and show the dialog.
+            DialogFragment1 newFragment = DialogFragment1.NewInstance(null);
+            //Add fragment
+            newFragment.Show(ft, "dialog");
+
+        }
 
 
 
