@@ -737,6 +737,48 @@ namespace Tasky.Core
             }
         }
 
+        public int UpdateCourseTeeHole(int courseTeeID, int holeNumber, int yards, int par)
+        {
+            int r;
+            lock (locker)
+            {
+                if ((courseTeeID != 0) && (holeNumber != 0))
+                {
+                    connection = new SqliteConnection("Data Source=" + path);
+                    connection.Open();
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = "UPDATE [Holes] SET [Par] = ?, [CourseReportedYardage] = ? " 
+                                                + "WHERE [CourseTeeID] = ? AND [HoleNumber] = ?;";
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = par });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = yards });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTeeID });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = holeNumber });
+                        r = command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                    return r;
+                }
+                else
+                {
+                    return 999;
+                    //connection = new SqliteConnection("Data Source=" + path);
+                    //connection.Open();
+                    //using (var command = connection.CreateCommand())
+                    //{
+                    //    command.CommandText = "INSERT INTO [CourseTees] ([CourseID],[TeeID],[CourseReportedYardage]) VALUES (?,?,?)";
+                    //    command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTee.CourseID });
+                    //    command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTee.TeeID });
+                    //    command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTee.CourseReportedYardage });
+                    //    r = command.ExecuteNonQuery();
+                    //}
+                    //connection.Close();
+                    //return r;
+                }
+
+            }
+        }
+
         //public CourseTee GetCourseTee(int id)
         //{
         //    var t = new CourseTee();

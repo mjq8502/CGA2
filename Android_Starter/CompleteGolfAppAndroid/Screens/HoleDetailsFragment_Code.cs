@@ -85,7 +85,7 @@ namespace CompleteGolfAppAndroid
 
         private void _listView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
-            var selected = list[e.Position];
+            var selected = chbnl.CourseHoles[e.Position];     //list[e.Position];
             //Toast toast = Toast.MakeText(this.Context, "_listView_ItemLongClick " + selected.ToString(), Android.Widget.ToastLength.Short);
             //toast.Show();
             FragmentTransaction ft = FragmentManager.BeginTransaction();
@@ -97,7 +97,7 @@ namespace CompleteGolfAppAndroid
             }
             ft.AddToBackStack(null);
             // Create and show the dialog.
-            DialogFragment1 newFragment = DialogFragment1.NewInstance(null);
+            HoleDetails_DialogFragment newFragment = HoleDetails_DialogFragment.NewInstance(null,selected.CourseTeeID, selected.HoleNumber);           //(null);
             //Add fragment
             newFragment.Show(ft, "dialog");
 

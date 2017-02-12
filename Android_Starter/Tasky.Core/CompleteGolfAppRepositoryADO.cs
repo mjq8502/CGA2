@@ -135,6 +135,11 @@ namespace Tasky.Core
         {
             return me.db.CreateCourseHolesForTee(courseTeeID, numberOfHoles);
         }
+
+        public static int UpdateCourseTeeHole(int courseTeeID, int holeNumber, int yards, int par)
+        {
+            return me.db.UpdateCourseTeeHole(courseTeeID, holeNumber, yards, par);
+        }
     }
 }
 

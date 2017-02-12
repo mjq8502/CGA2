@@ -90,9 +90,6 @@ namespace CompleteGolfAppAndroid
 			// aapt resource value: 0x7f05001b
 			public const int CityText = 2131034139;
 			
-			// aapt resource value: 0x7f050029
-			public const int CloseButton = 2131034153;
-			
 			// aapt resource value: 0x7f050005
 			public const int CourseDetailsEdit_Button_AddTee = 2131034117;
 			
@@ -210,6 +207,18 @@ namespace CompleteGolfAppAndroid
 			// aapt resource value: 0x7f05002b
 			public const int HoleDetails_Button_SaveNext2 = 2131034155;
 			
+			// aapt resource value: 0x7f050029
+			public const int HoleDetails_DialogFragment_Cancel_Button = 2131034153;
+			
+			// aapt resource value: 0x7f050028
+			public const int HoleDetails_DialogFragment_Save_Button = 2131034152;
+			
+			// aapt resource value: 0x7f050027
+			public const int HoleDetails_DialogFragment_Yards_EditText = 2131034151;
+			
+			// aapt resource value: 0x7f050026
+			public const int HoleDetails_DialogFragment_Yards_TextView = 2131034150;
+			
 			// aapt resource value: 0x7f05002a
 			public const int HoleDetails_ListView = 2131034154;
 			
@@ -264,9 +273,6 @@ namespace CompleteGolfAppAndroid
 			// aapt resource value: 0x7f050030
 			public const int Yards_TextView = 2131034160;
 			
-			// aapt resource value: 0x7f050028
-			public const int blah_blah = 2131034152;
-			
 			// aapt resource value: 0x7f050019
 			public const int lstItemCourse = 2131034137;
 			
@@ -281,12 +287,6 @@ namespace CompleteGolfAppAndroid
 			
 			// aapt resource value: 0x7f05002e
 			public const int relativeLayout1 = 2131034158;
-			
-			// aapt resource value: 0x7f050026
-			public const int textView1 = 2131034150;
-			
-			// aapt resource value: 0x7f050027
-			public const int textView2 = 2131034151;
 			
 			static Id()
 			{
@@ -317,7 +317,7 @@ namespace CompleteGolfAppAndroid
 			public const int CourseTeeDetails_Layout = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int DialogFragment1Layout = 2130903045;
+			public const int HoleDetails_DialogFragmentLayout = 2130903045;
 			
 			// aapt resource value: 0x7f030006
 			public const int HoleDetailsFragment_Layout2 = 2130903046;

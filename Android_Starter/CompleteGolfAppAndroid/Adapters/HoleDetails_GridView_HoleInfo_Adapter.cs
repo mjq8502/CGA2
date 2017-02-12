@@ -79,7 +79,7 @@ namespace CompleteGolfAppAndroid.Adapters
             //txtFirst.Text = splited[0];  
             //txtSecond.Text = splited[1];
             txtFirst.Text = ChList[position].TeeName;
-            txtSecond.Text = ChList[position].ActualYardage.ToString();
+            txtSecond.Text = ChList[position].CourseReportedYardage.ToString();   //.ActualYardage.ToString();
 
             return view;
 
