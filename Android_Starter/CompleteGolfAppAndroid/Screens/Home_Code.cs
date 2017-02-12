@@ -57,6 +57,9 @@ namespace CompleteGolfAppAndroid.Screens
                     };
                 }
 
+                ImageView qImageView = (ImageView)FindViewById<ImageView>(Resource.Id.qStatusImage);
+                qImageView.SetBackgroundResource(Resource.Drawable.Screenshot_20170212_094404);
+
                 //if (scoresButton != null)
                 //{
                 //    scoresButton.Click += (sender, e) => {

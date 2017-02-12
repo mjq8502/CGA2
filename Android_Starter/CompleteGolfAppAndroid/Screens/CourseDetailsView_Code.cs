@@ -29,8 +29,6 @@ namespace CompleteGolfAppAndroid.Screens
         Button addTeeButton;
         ViewPager holesViewPager;
         TreeCatalog treeCatalog;
-        FlashCardDeck flashCards;
-        //ViewPager viewPager;
 
         CompleteGolfAppAndroid.Adapters.CourseTeeListAdapter courseTeeListAdapter;
         ListView courseTees_ListView;

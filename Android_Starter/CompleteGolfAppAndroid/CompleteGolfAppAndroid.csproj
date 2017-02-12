@@ -63,9 +63,6 @@
     <Compile Include="Adapters\HoleListAdapter.cs" />
     <Compile Include="Adapters\HolePagerAdapter.cs" />
     <Compile Include="Adapters\TeeListAdapter.cs" />
-    <Compile Include="FlashCardDeck.cs" />
-    <Compile Include="FlashCardDeckAdapter.cs" />
-    <Compile Include="FlashCardFragment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\CourseDetailsEdit_Code.cs" />
     <Compile Include="Screens\CourseTeeDetails_Code.cs" />
@@ -112,16 +109,10 @@
     <AndroidResource Include="Resources\layout\Courses_Layout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\HoleDetailsFragment_Layout.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\CourseDetailsEdit_Layout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\CourseTeeDetails_Layout.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\flashcardlayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\HoleDetailsFragmentRow.axml">
@@ -179,5 +170,8 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Drawable\pine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Screenshot_20170212_094404.png" />
   </ItemGroup>
 </Project>
