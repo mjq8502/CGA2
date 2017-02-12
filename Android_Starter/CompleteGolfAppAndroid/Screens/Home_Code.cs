@@ -6,6 +6,7 @@ using Android.Widget;
 using Tasky.Core;
 using CompleteGolfAppAndroid;
 using System;
+using Android.Graphics;
 
 namespace CompleteGolfAppAndroid.Screens
 {
@@ -40,6 +41,14 @@ namespace CompleteGolfAppAndroid.Screens
                 teesButton = FindViewById<Button>(Resource.Id.Home_Button_Tees);
                 coursesButton = FindViewById<Button>(Resource.Id.Home_Button_Courses);
                 scoresButton = FindViewById<Button>(Resource.Id.Home_Button_Scores);
+
+                teesButton.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
+                coursesButton.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
+                scoresButton.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
+
+                teesButton.Alpha = 128;  // 50% transparent
+                coursesButton.Alpha = 128;  // 50% transparent
+                scoresButton.Alpha = 128;  // 50% transparent
 
                 // wire up button handlers
 
