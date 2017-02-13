@@ -84,7 +84,7 @@ namespace CompleteGolfAppAndroid.Adapters
             return view;
 
         }
-
+        
 
     }
 

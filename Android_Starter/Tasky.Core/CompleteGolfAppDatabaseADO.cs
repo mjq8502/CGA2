@@ -641,7 +641,8 @@ namespace Tasky.Core
                                          + "FROM [CourseTees] ct, [Holes] h, [Tees] t "
                                          + "WHERE ct._id = h.CourseTeeID "
                                          + "AND ct.TeeID = t._id "
-                                         + "AND ct.CourseID = ?";
+                                         + "AND ct.CourseID = ? "
+                                         + "ORDER BY h.holeNumber, t.TeeName";
                     command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseID });
                     var r = command.ExecuteReader();
                     while (r.Read())
@@ -717,7 +718,7 @@ namespace Tasky.Core
                 {
                     connection = new SqliteConnection("Data Source=" + path);
                     connection.Open();
-                    for (int holeNumber = 0; holeNumber < numberOfHoles; holeNumber++)
+                    for (int holeNumber = 1; holeNumber < numberOfHoles; holeNumber++)
                     {
                         using (var command = connection.CreateCommand())
                         {

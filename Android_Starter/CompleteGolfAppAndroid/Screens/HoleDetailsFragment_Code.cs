@@ -72,8 +72,8 @@ namespace CompleteGolfAppAndroid
             {
                 var selected = courseHoleByNumberList.CourseHoles[e.Position];
                 Toast toast = Toast.MakeText(this.Context, "Item click " + selected.TeeName.ToString()
-                                                                + " " + selected.ActualYardage
-                                                                + " " + selected.CourseTeeID, Android.Widget.ToastLength.Short);
+                                                                + " hn " + selected.HoleNumber
+                                                                + " ctID " + selected.CourseTeeID, Android.Widget.ToastLength.Short);
                 toast.Show();
                 
             };
@@ -86,8 +86,8 @@ namespace CompleteGolfAppAndroid
         private void _listView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
             var selected = chbnl.CourseHoles[e.Position];     //list[e.Position];
-            //Toast toast = Toast.MakeText(this.Context, "_listView_ItemLongClick " + selected.ToString(), Android.Widget.ToastLength.Short);
-            //toast.Show();
+            Toast toast = Toast.MakeText(this.Context, "hole " + selected.HoleNumber + " CourseTeeID " + selected.CourseTeeID, Android.Widget.ToastLength.Short);
+            toast.Show();
             FragmentTransaction ft = FragmentManager.BeginTransaction();
             //Remove fragment else it will crash as it is already added to backstack
             Fragment prev = FragmentManager.FindFragmentByTag("dialog");
