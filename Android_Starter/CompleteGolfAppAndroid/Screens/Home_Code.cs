@@ -28,7 +28,7 @@ namespace CompleteGolfAppAndroid.Screens
             try
             {
                 base.OnCreate(bundle);
-
+                // Test git
 
                 var x = TeeManager.GetTees();
                 var z = CourseTeeManager.GetAllCourseTees();
