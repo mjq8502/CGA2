@@ -718,7 +718,7 @@ namespace Tasky.Core
                 {
                     connection = new SqliteConnection("Data Source=" + path);
                     connection.Open();
-                    for (int holeNumber = 1; holeNumber < numberOfHoles; holeNumber++)
+                    for (int holeNumber = 1; holeNumber <= numberOfHoles; holeNumber++)
                     {
                         using (var command = connection.CreateCommand())
                         {
