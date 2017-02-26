@@ -19,7 +19,7 @@
         <EditText
             android:text=""
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:id="@+id/HoleDetails_DialogFragment_Par_EditText"
             android:layout_marginTop="10dp" />
@@ -39,7 +39,7 @@
       <EditText
           android:text=""
           android:textAppearance="?android:attr/textAppearanceSmall"
-          android:layout_width="match_parent"
+          android:layout_width="50dp"
           android:layout_height="wrap_content"
           android:id="@+id/HoleDetails_DialogFragment_Yards_EditText"
           android:layout_marginTop="10dp" />

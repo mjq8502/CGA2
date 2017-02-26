@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
-    <TextView
+    android:weightSum="2">
+  <ImageView
+      android:id="@+id/Courses_BackgroundImage"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent" />
+  <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+    <!--<TextView
         android:id="@+id/Courses_TextView_Header"
         android:text="Courses"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />-->
     <ListView
         android:id="@+id/Courses_ListView_CourseList"
         android:layout_width="fill_parent"
-        android:layout_height="240dp" />
+        android:layout_height="240dp"
+        android:background="@android:color/black"/>
     <Button
         android:id="@+id/Courses_Button_AddNew"
         android:text="New Course"
@@ -22,8 +35,5 @@
         android:text="Cancel"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
-<!--<Spinner
-        android:id="@+id/spinCourses"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />-->
-</LinearLayout>
+  </LinearLayout>
+</RelativeLayout>

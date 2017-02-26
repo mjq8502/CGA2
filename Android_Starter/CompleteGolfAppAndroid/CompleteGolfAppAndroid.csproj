@@ -172,6 +172,12 @@
     <AndroidResource Include="Resources\Drawable\pine.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\Screenshot_20170212_094404.png" />
+    <AndroidResource Include="Resources\drawable-nodpi\Screenshot_20170212_094404.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-nodpi\Screenshot_20170225_142830.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-nodpi\Screenshot_20170225_142535.png" />
   </ItemGroup>
 </Project>

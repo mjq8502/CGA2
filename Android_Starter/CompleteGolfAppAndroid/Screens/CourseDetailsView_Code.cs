@@ -10,14 +10,14 @@ using Android.Support.V4.View;
 using CompleteGolfAppAndroid.Adapters;
 using Android.Support.V4.App;
 using System.Linq;
-
+using Android.Graphics;
 
 namespace CompleteGolfAppAndroid.Screens
 {
     /// <summary>
     /// View/edit a Task
     /// </summary>
-    [Activity(Label = "CourseDetailsScreen")]
+    [Activity(Label = "Course Details")]
     public class CourseDetailsView_Code : FragmentActivity
     {
         Course course = new Course();
@@ -128,7 +128,13 @@ namespace CompleteGolfAppAndroid.Screens
             }
 
             HoleDetailsAdapter hdAdapter = new HoleDetailsAdapter(SupportFragmentManager, chbnl);
-            holesViewPager.Adapter = hdAdapter; 
+            holesViewPager.Adapter = hdAdapter;
+
+            ImageView backgroundImage = (ImageView)FindViewById<ImageView>(Resource.Id.CourseDetailsView_BackgroundImage);
+            backgroundImage.SetBackgroundResource(Resource.Drawable.Screenshot_20170225_142830);
+
+            courseTees_ListView.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
+            addTeeButton.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
 
         }
 

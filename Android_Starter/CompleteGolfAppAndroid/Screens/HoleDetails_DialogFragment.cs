@@ -17,17 +17,19 @@ namespace CompleteGolfAppAndroid
     public class HoleDetails_DialogFragment : Android.Support.V4.App.DialogFragment
     {
         EditText yardsEntered;
+        EditText parEntered;
         private static int CourseTeeID = new int();
         private static int HoleNumber;
         private static int Yards;
         private static int Par;
 
-        public static HoleDetails_DialogFragment NewInstance(Bundle bundle, int courseTeeId, int holeNumber)
+        public static HoleDetails_DialogFragment NewInstance(Bundle bundle, int courseTeeId, int holeNumber, int yards, int par)
         {
             HoleDetails_DialogFragment fragment = new HoleDetails_DialogFragment();
             CourseTeeID = courseTeeId;
             HoleNumber = holeNumber;
-            Par = 99;
+            Yards = yards;
+            Par = par;
             fragment.Arguments = bundle;
             return fragment;
         }
@@ -38,17 +40,20 @@ namespace CompleteGolfAppAndroid
             Button saveButton = view.FindViewById<Button>(Resource.Id.HoleDetails_DialogFragment_Save_Button);
             Button cancelButton = view.FindViewById<Button>(Resource.Id.HoleDetails_DialogFragment_Cancel_Button);
             yardsEntered = view.FindViewById<EditText>(Resource.Id.HoleDetails_DialogFragment_Yards_EditText);
+            parEntered = view.FindViewById<EditText>(Resource.Id.HoleDetails_DialogFragment_Par_EditText);
 
             saveButton.Click += delegate {
 
                 int yards = 0;
-
                 Int32.TryParse(yardsEntered.Text, out yards);
 
-                HoleManager.UpdateCourseTeeHole(CourseTeeID, HoleNumber, yards, 99);
+                int par = 0;
+                Int32.TryParse(parEntered.Text, out par);
+
+                HoleManager.UpdateCourseTeeHole(CourseTeeID, HoleNumber, yards, par);
                 
+                Toast.MakeText(Activity, "Hole info saved!" + " " + yards.ToString(), ToastLength.Long).Show();
                 Dismiss();
-                Toast.MakeText(Activity, "Dialog fragment saved!" + " " + yards.ToString(), ToastLength.Long).Show();
             };
 
             cancelButton.Click += delegate {

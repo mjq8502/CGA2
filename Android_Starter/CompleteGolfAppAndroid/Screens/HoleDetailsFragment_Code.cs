@@ -83,8 +83,8 @@ namespace CompleteGolfAppAndroid
             _listView.ItemLongClick += delegate (object sender, AdapterView.ItemLongClickEventArgs e)
             {
                 var selected = courseHoleByNumberList.CourseHoles[e.Position];     //list[e.Position];
-                Toast toast = Toast.MakeText(this.Context, "hole " + selected.HoleNumber + " CourseTeeID " + selected.CourseTeeID, Android.Widget.ToastLength.Short);
-                toast.Show();
+                //Toast toast = Toast.MakeText(this.Context, "hole " + selected.HoleNumber + " CourseTeeID " + selected.CourseTeeID, Android.Widget.ToastLength.Short);
+                //toast.Show();
                 FragmentTransaction ft = FragmentManager.BeginTransaction();
                 //Remove fragment else it will crash as it is already added to backstack
                 Fragment prev = FragmentManager.FindFragmentByTag("dialog");
@@ -94,7 +94,7 @@ namespace CompleteGolfAppAndroid
                 }
                 ft.AddToBackStack(null);
                 // Create and show the dialog.
-                HoleDetails_DialogFragment newFragment = HoleDetails_DialogFragment.NewInstance(null, selected.CourseTeeID, selected.HoleNumber);           //(null);
+                HoleDetails_DialogFragment newFragment = HoleDetails_DialogFragment.NewInstance(null, selected.CourseTeeID, selected.HoleNumber, selected.ActualYardage, selected.Par);           //(null);
                                                                                                                                                             //Add fragment
                 newFragment.Show(ft, "dialog");
 
@@ -119,7 +119,7 @@ namespace CompleteGolfAppAndroid
             }
             ft.AddToBackStack(null);
             // Create and show the dialog.
-            HoleDetails_DialogFragment newFragment = HoleDetails_DialogFragment.NewInstance(null,selected.CourseTeeID, selected.HoleNumber);           //(null);
+            HoleDetails_DialogFragment newFragment = HoleDetails_DialogFragment.NewInstance(null,selected.CourseTeeID, selected.HoleNumber, selected.ActualYardage, selected.Par);           //(null);
             //Add fragment
             newFragment.Show(ft, "dialog");
 

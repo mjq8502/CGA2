@@ -13,7 +13,7 @@ namespace CompleteGolfAppAndroid.Screens
     /// <summary>
     /// Main ListView screen displays a list of tasks, plus an [Add] button
     /// </summary>
-    [Activity(Label = "CompleteGolfApp5", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Complete Golf App", MainLauncher = true, Icon = "@drawable/icon")]
     public class Home_Code : Activity
     {
         //Adapters.TaskListAdapter taskList;

@@ -642,7 +642,7 @@ namespace Tasky.Core
                                          + "WHERE ct._id = h.CourseTeeID "
                                          + "AND ct.TeeID = t._id "
                                          + "AND ct.CourseID = ? "
-                                         + "ORDER BY h.holeNumber, t.TeeName";
+                                         + "ORDER BY h.holeNumber, ct.CourseReportedYardage desc";
                     command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseID });
                     var r = command.ExecuteReader();
                     while (r.Read())

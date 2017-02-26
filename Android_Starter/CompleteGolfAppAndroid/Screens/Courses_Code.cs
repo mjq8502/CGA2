@@ -6,6 +6,7 @@ using Tasky.Core;
 using System.Collections.Generic;
 using System;
 using Android.Views;
+using Android.Graphics;
 
 namespace CompleteGolfAppAndroid.Screens
 {
@@ -79,6 +80,12 @@ namespace CompleteGolfAppAndroid.Screens
                     StartActivity(activity2);
 
                 };
+
+                ImageView backgroundImage = (ImageView)FindViewById<ImageView>(Resource.Id.Courses_BackgroundImage);
+                backgroundImage.SetBackgroundResource(Resource.Drawable.Screenshot_20170225_142535);
+
+                courseListView.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
+                addNewCourseButton.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
 
             }
             catch (Exception ex)
