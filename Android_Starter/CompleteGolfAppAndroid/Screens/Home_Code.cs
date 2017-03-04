@@ -94,7 +94,7 @@ namespace CompleteGolfAppAndroid.Screens
         protected override void OnResume()
         {
             base.OnResume();
-
+            
             //tasks = TaskManager.GetTasks();
 
             //// create our adapter

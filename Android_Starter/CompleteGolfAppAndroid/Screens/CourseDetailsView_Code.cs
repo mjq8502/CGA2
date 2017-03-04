@@ -26,6 +26,7 @@ namespace CompleteGolfAppAndroid.Screens
         TextView courseCityValue;
         TextView courseParValue;
         TextView courseHolesValue;
+        TextView tvHoles;
         Button addTeeButton;
         ViewPager holesViewPager;
         TreeCatalog treeCatalog;
@@ -63,6 +64,7 @@ namespace CompleteGolfAppAndroid.Screens
             courseHolesValue = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_Holes);
             courseTees_ListView = FindViewById<ListView>(Resource.Id.CourseDetailsView_ListView_TeeSummary);
             addTeeButton = FindViewById<Button>(Resource.Id.CourseDetailsView_Button_AddTee);
+            tvHoles = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_HolesLabel);
 
 
             courseNameValue.Text = course.CourseName;
@@ -127,7 +129,7 @@ namespace CompleteGolfAppAndroid.Screens
                 chbnl.Add(chb);
             }
 
-            HoleDetailsAdapter hdAdapter = new HoleDetailsAdapter(SupportFragmentManager, chbnl);
+            HoleDetailsAdapter hdAdapter = new HoleDetailsAdapter(SupportFragmentManager, chbnl, courseID);
             holesViewPager.Adapter = hdAdapter;
 
             ImageView backgroundImage = (ImageView)FindViewById<ImageView>(Resource.Id.CourseDetailsView_BackgroundImage);
@@ -135,6 +137,8 @@ namespace CompleteGolfAppAndroid.Screens
 
             courseTees_ListView.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
             addTeeButton.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
+            //tvHoles.SetBackgroundColor(new Color(0x00, 0x75, 0x00));
+
 
         }
 

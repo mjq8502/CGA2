@@ -26,14 +26,9 @@ namespace CompleteGolfAppAndroid.Adapters
         public HoleDetails_GridView_HoleInfo_Adapter(HoleDetailsFragment c, List<CourseHole> chList) : base()
         {
             context = c.Activity;
-            //STR = str;
+
             ChList = chList;
 
-            //this.items = new List<Model>();
-            //Model m = new Adapters.Model("Blue", "321");
-            //items.Add(m);
-            //m = new Adapters.Model("Red", "333");
-            //items.Add(m);
 
         }
         public override int Count

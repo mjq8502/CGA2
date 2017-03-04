@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V4.App;
 using Tasky.Core;
+using Tasky;
 
 namespace CompleteGolfAppAndroid
 {
@@ -22,6 +23,9 @@ namespace CompleteGolfAppAndroid
         private static int HoleNumber;
         private static int Yards;
         private static int Par;
+        public event DialogEventHandler Dismissed;
+
+        //public event DialogEventHandler Dismissed;
 
         public static HoleDetails_DialogFragment NewInstance(Bundle bundle, int courseTeeId, int holeNumber, int yards, int par)
         {
@@ -53,6 +57,12 @@ namespace CompleteGolfAppAndroid
                 HoleManager.UpdateCourseTeeHole(CourseTeeID, HoleNumber, yards, par);
                 
                 Toast.MakeText(Activity, "Hole info saved!" + " " + yards.ToString(), ToastLength.Long).Show();
+                if (null != Dismissed)
+                {
+                    Dismissed(this, new DialogEventArgs { Text = "Saved" });
+                }
+
+
                 Dismiss();
             };
 

@@ -11,6 +11,7 @@ using CompleteGolfAppAndroid.Adapters;
 using Android.Content;
 using System.Data;
 using Android.Graphics;
+using Tasky;
 
 namespace CompleteGolfAppAndroid
 {
@@ -19,18 +20,24 @@ namespace CompleteGolfAppAndroid
         private ListView _listView;
         private string[] list;
         private static Tasky.CourseHoleByNumberList chbnl;
+        private static int CourseID;
+        private int currentHoleNumber;
+
+        private static Handler handler;
 
         public HoleDetailsFragment()
         {
             
         }
 
-        public static HoleDetailsFragment newInstance(Tasky.CourseHoleByNumberList holesByNumber)
+        public static HoleDetailsFragment newInstance(Tasky.CourseHoleByNumberList holesByNumber, int courseID)
         {
             HoleDetailsFragment fragment = new HoleDetailsFragment();
             Bundle args = new Bundle();
             chbnl = holesByNumber;
-           
+            CourseID = courseID;
+            
+            handler = new Handler();
 
             args.PutString("holesByNumber", JsonConvert.SerializeObject(holesByNumber));
 
@@ -41,32 +48,23 @@ namespace CompleteGolfAppAndroid
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+
             var courseHoleByNumberList = JsonConvert.DeserializeObject<Tasky.CourseHoleByNumberList>(Arguments.GetString("holesByNumber"));
+            
             View view = inflater.Inflate(Resource.Layout.HoleDetailsFragment_Layout2, container, false);
 
             Context context = Android.App.Application.Context;
-
-            DataTable itemTable = new DataTable();
-            itemTable.Columns.Add("Tee", typeof(string));
-            itemTable.Columns.Add("Yards", typeof(string));
-
-
-            List<string> stringList = new List<string>();
+            
             List<CourseHole> chList = new List<CourseHole>();
+            var zzz = HoleManager.GetCourseHolesByHole(CourseID).CourseHoleDataLists.Where(x => x.HoleNumber == courseHoleByNumberList.HoleNumber).FirstOrDefault().CourseHoles;
             foreach (var courseHole in courseHoleByNumberList.CourseHoles)
             {
-                DataRow row = itemTable.NewRow();
-                row["Tee"] = courseHole.TeeName;
-                row["Yards"] = courseHole.ActualYardage;
-                itemTable.Rows.Add(row);
-                stringList.Add(courseHole.TeeName + "|" + courseHole.ActualYardage);
                 chList.Add(courseHole);
             }
 
-            list = stringList.ToArray();
-
             _listView = view.FindViewById<ListView>(Resource.Id.HoleDetails_ListView);
-            _listView.Adapter = new HoleDetails_GridView_HoleInfo_Adapter(this, chList);
+            //_listView.Adapter = new HoleDetails_GridView_HoleInfo_Adapter(this, chList);
+            _listView.Adapter = new HoleDetails_GridView_HoleInfo_Adapter(this, zzz);
 
             _listView.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs e)
             {
@@ -78,13 +76,11 @@ namespace CompleteGolfAppAndroid
                 
             };
 
-            //_listView.ItemLongClick += _listView_ItemLongClick;
-
             _listView.ItemLongClick += delegate (object sender, AdapterView.ItemLongClickEventArgs e)
             {
+                
                 var selected = courseHoleByNumberList.CourseHoles[e.Position];     //list[e.Position];
-                //Toast toast = Toast.MakeText(this.Context, "hole " + selected.HoleNumber + " CourseTeeID " + selected.CourseTeeID, Android.Widget.ToastLength.Short);
-                //toast.Show();
+                currentHoleNumber = selected.HoleNumber;
                 FragmentTransaction ft = FragmentManager.BeginTransaction();
                 //Remove fragment else it will crash as it is already added to backstack
                 Fragment prev = FragmentManager.FindFragmentByTag("dialog");
@@ -95,8 +91,10 @@ namespace CompleteGolfAppAndroid
                 ft.AddToBackStack(null);
                 // Create and show the dialog.
                 HoleDetails_DialogFragment newFragment = HoleDetails_DialogFragment.NewInstance(null, selected.CourseTeeID, selected.HoleNumber, selected.ActualYardage, selected.Par);           //(null);
-                                                                                                                                                            //Add fragment
+                newFragment.Dismissed += NewFragment_Dismissed;                                                                                                                                       //Add fragment
                 newFragment.Show(ft, "dialog");
+
+                
 
             };
 
@@ -104,6 +102,18 @@ namespace CompleteGolfAppAndroid
 
             return view;
         }
+
+        private void NewFragment_Dismissed(object sender, DialogEventArgs args)
+        {
+            var updatedCourseHoles = HoleManager.GetCourseHolesByHole(CourseID);
+            List<CourseHole> chList = new List<CourseHole>();
+            foreach (var courseHole in updatedCourseHoles.CourseHoleDataLists[currentHoleNumber-1].CourseHoles)
+            {
+                chList.Add(courseHole);
+            }
+            _listView.Adapter = new HoleDetails_GridView_HoleInfo_Adapter(this, chList);
+        }
+
 
         private void _listView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {

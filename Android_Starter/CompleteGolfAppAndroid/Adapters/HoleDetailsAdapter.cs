@@ -11,10 +11,12 @@ namespace CompleteGolfAppAndroid
     class HoleDetailsAdapter : FragmentPagerAdapter
     {
         private List<Tasky.CourseHoleByNumberList> CHBNL;
+        private int CourseID;
 
-        public HoleDetailsAdapter(Android.Support.V4.App.FragmentManager fm, List<Tasky.CourseHoleByNumberList> chbnl) : base(fm)
+        public HoleDetailsAdapter(Android.Support.V4.App.FragmentManager fm, List<Tasky.CourseHoleByNumberList> chbnl, int courseID) : base(fm)
         {
             CHBNL = chbnl;
+            CourseID = courseID;
             //this.courseHoles = courseHoles;
         }
 
@@ -30,7 +32,7 @@ namespace CompleteGolfAppAndroid
             var x = Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists.ElementAt(position);
 
             return (Android.Support.V4.App.Fragment)
-                HoleDetailsFragment.newInstance(CHBNL.ElementAt(position));
+                HoleDetailsFragment.newInstance(CHBNL.ElementAt(position), CourseID);
             //HoleDetailsFragment.newInstance(Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists.ElementAt(position));
 
         }
