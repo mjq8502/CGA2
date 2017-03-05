@@ -105,6 +105,7 @@ namespace CompleteGolfAppAndroid
 
         private void NewFragment_Dismissed(object sender, DialogEventArgs args)
         {
+            Tasky.GlobalEntities.courseHoleByNumberListList = HoleManager.GetCourseHolesByHole(CourseID);
             var updatedCourseHoles = HoleManager.GetCourseHolesByHole(CourseID);
             List<CourseHole> chList = new List<CourseHole>();
             foreach (var courseHole in updatedCourseHoles.CourseHoleDataLists[currentHoleNumber-1].CourseHoles)

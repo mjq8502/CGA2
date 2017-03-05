@@ -75,9 +75,9 @@ namespace Tasky.Core
             return CompleteGolfAppRepositoryADO.CreateCourseHolesForTee(courseTeeID, numberOfHoles);
         }
 
-        public static int UpdateCourseTeeHole(int courseTeeID, int holeNumber, int yards, int par)
+        public static int UpdateCourseTeeHole(int courseTeeID, int holeNumber, int yards)
         {
-            return CompleteGolfAppRepositoryADO.UpdateCourseTeeHole(courseTeeID, holeNumber, yards, par);
+            return CompleteGolfAppRepositoryADO.UpdateCourseTeeHole(courseTeeID, holeNumber, yards);
         }
 
         //public static int DeleteCourse(int id)

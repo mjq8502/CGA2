@@ -69,10 +69,6 @@ namespace CompleteGolfAppAndroid.Adapters
             txtSecond = (TextView)view.FindViewById(Resource.Id.Yards_TextView);
 
 
-            //string[] splited = STR[position].Split('|');
-
-            //txtFirst.Text = splited[0];  
-            //txtSecond.Text = splited[1];
             txtFirst.Text = ChList[position].TeeName;
             txtSecond.Text = ChList[position].CourseReportedYardage.ToString();   //.ActualYardage.ToString();
 
@@ -83,29 +79,6 @@ namespace CompleteGolfAppAndroid.Adapters
 
     }
 
-    //public class Model
-    //{
 
-    //    private String Tee;
-    //    private String Yards;
-
-
-    //    public Model(String tee, String yards)
-    //    {
-    //        this.Tee = tee;
-    //        this.Yards = yards;
-
-    //    }
-
-    //    public String getsTee()
-    //    {
-    //        return Tee;
-    //    }
-
-    //    public String getYards()
-    //    {
-    //        return Yards;
-    //    }
-    //}
 }
     

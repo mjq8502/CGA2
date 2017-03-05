@@ -11,38 +11,18 @@
         android:layout_margin="10dp"
         android:padding="10dp">
         <TextView
-            android:text="Par"
+            android:text="Yards"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/HoleDetails_DialogFragment_Par_TextView" />
+            android:id="@+id/HoleDetails_DialogFragment_Yards_TextView" />
         <EditText
             android:text=""
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:id="@+id/HoleDetails_DialogFragment_Par_EditText"
+            android:id="@+id/HoleDetails_DialogFragment_Yards_EditText"
             android:layout_marginTop="10dp" />
-    </LinearLayout>
-    <LinearLayout
-      android:orientation="horizontal"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="10dp"
-      android:padding="10dp">
-      <TextView
-          android:text="Yards"
-          android:textAppearance="?android:attr/textAppearanceLarge"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/HoleDetails_DialogFragment_Yards_TextView" />
-      <EditText
-          android:text=""
-          android:textAppearance="?android:attr/textAppearanceSmall"
-          android:layout_width="50dp"
-          android:layout_height="wrap_content"
-          android:id="@+id/HoleDetails_DialogFragment_Yards_EditText"
-          android:layout_marginTop="10dp" />
     </LinearLayout>
     <Button
         android:text="Save"

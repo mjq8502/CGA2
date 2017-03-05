@@ -30,6 +30,7 @@ namespace CompleteGolfAppAndroid.Screens
         Button addTeeButton;
         ViewPager holesViewPager;
         TreeCatalog treeCatalog;
+        PagerTitleStrip pts;
 
         CompleteGolfAppAndroid.Adapters.CourseTeeListAdapter courseTeeListAdapter;
         ListView courseTees_ListView;
@@ -122,6 +123,11 @@ namespace CompleteGolfAppAndroid.Screens
             Tasky.GlobalEntities.courseHoleByNumberListList = HoleManager.GetCourseHolesByHole(course.ID);
 
             holesViewPager = FindViewById<ViewPager>(Resource.Id.CourseDetailsView_ViewPager_Holes);
+
+            //holesViewPager.Click += HolesViewPager_Click;
+            pts = FindViewById<PagerTitleStrip>(Resource.Id.CourseDetailsView_PagerTitleStrip);
+            pts.Click += Pts_Click;
+
             List<Tasky.CourseHoleByNumberList> chbnl = new List<Tasky.CourseHoleByNumberList>();
             
             foreach(Tasky.CourseHoleByNumberList chb in Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists)
@@ -142,6 +148,15 @@ namespace CompleteGolfAppAndroid.Screens
 
         }
 
+        private void Pts_Click(object sender, System.EventArgs e)
+        {
+            Toast.MakeText(this, "View Pager Title clicked", ToastLength.Long).Show();
+        }
+
+        //private void HolesViewPager_Click(object sender, System.EventArgs e)
+        //{
+        //    Toast.MakeText(this, "View Pager clicked", ToastLength.Long).Show();
+        //}
 
         protected override void OnResume()
         {

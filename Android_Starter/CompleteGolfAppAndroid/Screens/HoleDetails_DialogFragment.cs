@@ -33,7 +33,7 @@ namespace CompleteGolfAppAndroid
             CourseTeeID = courseTeeId;
             HoleNumber = holeNumber;
             Yards = yards;
-            Par = par;
+            //Par = par;
             fragment.Arguments = bundle;
             return fragment;
         }
@@ -44,19 +44,15 @@ namespace CompleteGolfAppAndroid
             Button saveButton = view.FindViewById<Button>(Resource.Id.HoleDetails_DialogFragment_Save_Button);
             Button cancelButton = view.FindViewById<Button>(Resource.Id.HoleDetails_DialogFragment_Cancel_Button);
             yardsEntered = view.FindViewById<EditText>(Resource.Id.HoleDetails_DialogFragment_Yards_EditText);
-            parEntered = view.FindViewById<EditText>(Resource.Id.HoleDetails_DialogFragment_Par_EditText);
 
             saveButton.Click += delegate {
 
                 int yards = 0;
                 Int32.TryParse(yardsEntered.Text, out yards);
 
-                int par = 0;
-                Int32.TryParse(parEntered.Text, out par);
-
-                HoleManager.UpdateCourseTeeHole(CourseTeeID, HoleNumber, yards, par);
+                HoleManager.UpdateCourseTeeHole(CourseTeeID, HoleNumber, yards);
                 
-                Toast.MakeText(Activity, "Hole info saved!" + " " + yards.ToString(), ToastLength.Long).Show();
+                //Toast.MakeText(Activity, "Hole info saved!" + " " + yards.ToString(), ToastLength.Long).Show();
                 if (null != Dismissed)
                 {
                     Dismissed(this, new DialogEventArgs { Text = "Saved" });

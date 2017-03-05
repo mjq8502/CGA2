@@ -57,6 +57,8 @@ namespace Tasky.Core
             }
             else
             {
+
+                //"CREATE TABLE [CoursePar] (_id INTEGER PRIMARY KEY ASC, CourseID INTEGER, HoleNumber INTEGER, Par INTEGER);",
                 // Database does not exist  or being modified.
 
                 //connection = new SqliteConnection("Data Source=" + dbPath);
@@ -738,7 +740,7 @@ namespace Tasky.Core
             }
         }
 
-        public int UpdateCourseTeeHole(int courseTeeID, int holeNumber, int yards, int par)
+        public int UpdateCourseTeeHole(int courseTeeID, int holeNumber, int yards)
         {
             int r;
             lock (locker)
@@ -749,9 +751,9 @@ namespace Tasky.Core
                     connection.Open();
                     using (var command = connection.CreateCommand())
                     {
-                        command.CommandText = "UPDATE [Holes] SET [Par] = ?, [CourseReportedYardage] = ? " 
+                        command.CommandText = "UPDATE [Holes] SET [CourseReportedYardage] = ? " 
                                                 + "WHERE [CourseTeeID] = ? AND [HoleNumber] = ?;";
-                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = par });
+
                         command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = yards });
                         command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTeeID });
                         command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = holeNumber });
@@ -775,6 +777,46 @@ namespace Tasky.Core
                     //}
                     //connection.Close();
                     //return r;
+                }
+
+            }
+        }
+
+        public int SaveCoursePar(int courseParID, int courseID, int holeNumber, int par)
+        {
+            int r;
+            lock (locker)
+            {
+                if (courseID != 0)
+                {
+                    connection = new SqliteConnection("Data Source=" + path);
+                    connection.Open();
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = "UPDATE [CoursePar] SET [CourseID] = ?, [HoleNumber] = ?, [Par] = ? WHERE [_id] = ?;";
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseID });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = holeNumber });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = par });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseParID });
+                        r = command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                    return r;
+                }
+                else
+                {
+                    connection = new SqliteConnection("Data Source=" + path);
+                    connection.Open();
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = "INSERT INTO [CoursePar] ([CourseID],[HoleNumber],[Par]) VALUES (?,?,?)";
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseID });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = holeNumber });
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = par });
+                        r = command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                    return r;
                 }
 
             }
