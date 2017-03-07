@@ -40,7 +40,7 @@ namespace CompleteGolfAppAndroid
             View view = inflater.Inflate(Resource.Layout.HoleDetails_DialogFragmentLayout, container, false);
             Button saveButton = view.FindViewById<Button>(Resource.Id.HoleDetails_DialogFragment_Save_Button);
             Button cancelButton = view.FindViewById<Button>(Resource.Id.HoleDetails_DialogFragment_Cancel_Button);
-            parEntered = view.FindViewById<EditText>(Resource.Id..CourseDetailsEdit_EditText_City);
+            parEntered = view.FindViewById<EditText>(Resource.Id.CoursePar_DialogFragment_Par_EditText);
 
             saveButton.Click += delegate {
 
