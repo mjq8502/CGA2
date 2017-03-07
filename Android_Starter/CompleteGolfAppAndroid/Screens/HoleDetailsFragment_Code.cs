@@ -94,8 +94,6 @@ namespace CompleteGolfAppAndroid
                 newFragment.Dismissed += NewFragment_Dismissed;                                                                                                                                       //Add fragment
                 newFragment.Show(ft, "dialog");
 
-                
-
             };
 
 

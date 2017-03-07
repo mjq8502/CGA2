@@ -25,9 +25,9 @@ namespace CompleteGolfAppAndroid
 
         //public event DialogEventHandler Dismissed;
 
-        public static HoleDetails_DialogFragment NewInstance(Bundle bundle, int courseId, int holeNumber, int par)
+        public static CoursePar_DialogFragment NewInstance(Bundle bundle, int courseId, int holeNumber, int par)
         {
-            HoleDetails_DialogFragment fragment = new HoleDetails_DialogFragment();
+            CoursePar_DialogFragment fragment = new CoursePar_DialogFragment();
             CourseID = courseId;
             HoleNumber = holeNumber;
             Par = par;
