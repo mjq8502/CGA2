@@ -31,6 +31,7 @@ namespace CompleteGolfAppAndroid.Screens
         ViewPager holesViewPager;
         TreeCatalog treeCatalog;
         PagerTitleStrip pts;
+        LinearLayout linearLayout_CourseNameBasicInfo;
 
         CompleteGolfAppAndroid.Adapters.CourseTeeListAdapter courseTeeListAdapter;
         ListView courseTees_ListView;
@@ -60,16 +61,18 @@ namespace CompleteGolfAppAndroid.Screens
 
             // find all our controls
             courseNameValue = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_Name);
-            courseCityValue = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_City);
+            //courseCityValue = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_City);
             courseParValue = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_Par);
             courseHolesValue = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_Holes);
             courseTees_ListView = FindViewById<ListView>(Resource.Id.CourseDetailsView_ListView_TeeSummary);
             addTeeButton = FindViewById<Button>(Resource.Id.CourseDetailsView_Button_AddTee);
-            tvHoles = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_HolesLabel);
+            linearLayout_CourseNameBasicInfo = FindViewById<LinearLayout>(Resource.Id.CourseDetailsView_LinearLayout_CourseNameBasicInfo);
+
+            //tvHoles = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_HolesLabel);
 
 
             courseNameValue.Text = course.CourseName;
-            courseCityValue.Text = course.City;
+            //courseCityValue.Text = course.City;
             courseHolesValue.Text = course.Holes.ToString();
             courseParValue.Text = course.Par.ToString();
 
@@ -143,6 +146,7 @@ namespace CompleteGolfAppAndroid.Screens
 
             courseTees_ListView.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
             addTeeButton.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
+            linearLayout_CourseNameBasicInfo.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
             //tvHoles.SetBackgroundColor(new Color(0x00, 0x75, 0x00));
 
 
@@ -150,13 +154,9 @@ namespace CompleteGolfAppAndroid.Screens
 
         private void Pts_Click(object sender, System.EventArgs e)
         {
-            Toast.MakeText(this, "View Pager Title clicked", ToastLength.Long).Show();
+            Toast.MakeText(this, "View Pager Title clicked", ToastLength.Short).Show();
         }
 
-        //private void HolesViewPager_Click(object sender, System.EventArgs e)
-        //{
-        //    Toast.MakeText(this, "View Pager clicked", ToastLength.Long).Show();
-        //}
 
         protected override void OnResume()
         {
