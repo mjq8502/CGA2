@@ -2,15 +2,13 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using CompleteGolfAppAndroid;
 using Tasky.Core;
 
 using System.Collections.Generic;
 using Android.Support.V4.View;
-using CompleteGolfAppAndroid.Adapters;
 using Android.Support.V4.App;
-using System.Linq;
 using Android.Graphics;
+using Tasky;
 
 namespace CompleteGolfAppAndroid.Screens
 {
@@ -61,18 +59,13 @@ namespace CompleteGolfAppAndroid.Screens
 
             // find all our controls
             courseNameValue = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_Name);
-            //courseCityValue = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_City);
             courseParValue = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_Par);
             courseHolesValue = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_Holes);
             courseTees_ListView = FindViewById<ListView>(Resource.Id.CourseDetailsView_ListView_TeeSummary);
             addTeeButton = FindViewById<Button>(Resource.Id.CourseDetailsView_Button_AddTee);
             linearLayout_CourseNameBasicInfo = FindViewById<LinearLayout>(Resource.Id.CourseDetailsView_LinearLayout_CourseNameBasicInfo);
 
-            //tvHoles = FindViewById<TextView>(Resource.Id.CourseDetailsView_TextView_HolesLabel);
-
-
             courseNameValue.Text = course.CourseName;
-            //courseCityValue.Text = course.City;
             courseHolesValue.Text = course.Holes.ToString();
             courseParValue.Text = course.Par.ToString();
 
@@ -91,45 +84,12 @@ namespace CompleteGolfAppAndroid.Screens
             }
 
 
-            #region courseHolesByHole
-            //var courseHolesByHole = new CourseHoleByNumberListList
-            //{
-            //    CourseHoleDataLists = chd.GroupBy(g => new
-            //    {
-            //        g.HoleNumber
-            //    })
-            //    .Select(ch => new CourseHoleByNumberList
-            //    {
-            //        HoleNumber = ch.Key.HoleNumber,
-            //        CourseHoles = ch.GroupBy(g => new
-            //        {
-            //            g.CourseTeeID,
-            //            g.HoleNumber,
-            //            g.ActualYardage,
-            //            g.CourseReportedYardage,
-            //            g.Par,
-            //            g.TeeName
-
-            //        }).Select(ch2 => new CourseHole
-            //        {
-            //            CourseTeeID = ch2.Key.CourseTeeID,
-            //            HoleNumber = ch2.Key.HoleNumber,
-            //            Par = ch2.Key.Par,
-            //            CourseReportedYardage = ch2.Key.CourseReportedYardage,
-            //            ActualYardage = ch2.Key.ActualYardage,
-            //            TeeName = ch2.Key.TeeName
-            //        }).ToList()
-            //    }).ToList()
-            //};
-            #endregion
-
             Tasky.GlobalEntities.courseHoleByNumberListList = HoleManager.GetCourseHolesByHole(course.ID);
 
             holesViewPager = FindViewById<ViewPager>(Resource.Id.CourseDetailsView_ViewPager_Holes);
 
-            //holesViewPager.Click += HolesViewPager_Click;
             pts = FindViewById<PagerTitleStrip>(Resource.Id.CourseDetailsView_PagerTitleStrip);
-            pts.Click += Pts_Click;
+            pts.LongClick += Pts_LongClick;
 
             List<Tasky.CourseHoleByNumberList> chbnl = new List<Tasky.CourseHoleByNumberList>();
             
@@ -147,15 +107,29 @@ namespace CompleteGolfAppAndroid.Screens
             courseTees_ListView.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
             addTeeButton.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
             linearLayout_CourseNameBasicInfo.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
-            //tvHoles.SetBackgroundColor(new Color(0x00, 0x75, 0x00));
-
 
         }
 
-        private void Pts_Click(object sender, System.EventArgs e)
+        private void Pts_LongClick(object sender, System.EventArgs e)
         {
-            Toast.MakeText(this, "View Pager Title clicked", ToastLength.Short).Show();
+            Android.App.FragmentTransaction ft = FragmentManager.BeginTransaction();
+            //Remove fragment else it will crash as it is already added to backstack
+            Android.App.Fragment prev = FragmentManager.FindFragmentByTag("dialog");
+            if (prev != null)
+            {
+                ft.Remove(prev);
+            }
+            ft.AddToBackStack(null);
+
+            // Create and show the dialog.
+            CoursePar_DialogFragment newFragment = CoursePar_DialogFragment.NewInstance(null, course.ID, 99, 99);     
+            newFragment.Dismissed += NewFragment_Dismissed;                                                                                                                                       //Add fragment
+            newFragment.Show(ft, "dialog");
+
+            //Toast.MakeText(this, "View Pager Title clicked", ToastLength.Short).Show();
         }
+
+
 
 
         protected override void OnResume()
@@ -193,6 +167,18 @@ namespace CompleteGolfAppAndroid.Screens
             //    TaskManager.DeleteTask(task.ID);
             //}
             Finish();
+        }
+
+        private void NewFragment_Dismissed(object sender, DialogEventArgs args)
+        {
+            Tasky.GlobalEntities.courseHoleByNumberListList = HoleManager.GetCourseHolesByHole(999);
+            var updatedCourseHoles = HoleManager.GetCourseHolesByHole(999);
+            List<CourseHole> chList = new List<CourseHole>();
+            foreach (var courseHole in updatedCourseHoles.CourseHoleDataLists[999 - 1].CourseHoles)
+            {
+                chList.Add(courseHole);
+            }
+            //_listView.Adapter = new HoleDetails_GridView_HoleInfo_Adapter(this, chList);
         }
     }
 }

@@ -15,7 +15,7 @@ using Tasky;
 
 namespace CompleteGolfAppAndroid
 {
-    public class CoursePar_DialogFragment : Android.Support.V4.App.DialogFragment
+    public class CoursePar_DialogFragment : Android.App.DialogFragment
     {
         EditText parEntered;
         private static int CourseID = new int();
@@ -37,9 +37,9 @@ namespace CompleteGolfAppAndroid
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
-            View view = inflater.Inflate(Resource.Layout.HoleDetails_DialogFragmentLayout, container, false);
-            Button saveButton = view.FindViewById<Button>(Resource.Id.HoleDetails_DialogFragment_Save_Button);
-            Button cancelButton = view.FindViewById<Button>(Resource.Id.HoleDetails_DialogFragment_Cancel_Button);
+            View view = inflater.Inflate(Resource.Layout.CoursePar_DialogFragmentLayout, container, false);
+            Button saveButton = view.FindViewById<Button>(Resource.Id.CoursePar_DialogFragment_Save_Button);
+            Button cancelButton = view.FindViewById<Button>(Resource.Id.CoursePar_DialogFragment_Cancel_Button);
             parEntered = view.FindViewById<EditText>(Resource.Id.CoursePar_DialogFragment_Par_EditText);
 
             saveButton.Click += delegate {

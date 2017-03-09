@@ -23,7 +23,7 @@ namespace CompleteGolfAppAndroid
         private static int CourseID;
         private int currentHoleNumber;
 
-        private static Handler handler;
+        //private static Handler handler;
 
         public HoleDetailsFragment()
         {
@@ -37,7 +37,7 @@ namespace CompleteGolfAppAndroid
             chbnl = holesByNumber;
             CourseID = courseID;
             
-            handler = new Handler();
+            //handler = new Handler();
 
             args.PutString("holesByNumber", JsonConvert.SerializeObject(holesByNumber));
 
