@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="10dp">
+      <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:padding="10dp">
+        <TextView
+            android:text="Hole Number: "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/HoleDetails_DialogFragment_HoleNumber_TextView_Label" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/HoleDetails_DialogFragment_HoleNumber_TextView_Label"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"

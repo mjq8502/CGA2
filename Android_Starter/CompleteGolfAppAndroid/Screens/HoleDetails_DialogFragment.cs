@@ -12,6 +12,7 @@ using Android.Widget;
 using Android.Support.V4.App;
 using Tasky.Core;
 using Tasky;
+using Android.Graphics;
 
 namespace CompleteGolfAppAndroid
 {
@@ -41,6 +42,8 @@ namespace CompleteGolfAppAndroid
         {
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.HoleDetails_DialogFragmentLayout, container, false);
+            view.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
+
             Button saveButton = view.FindViewById<Button>(Resource.Id.HoleDetails_DialogFragment_Save_Button);
             Button cancelButton = view.FindViewById<Button>(Resource.Id.HoleDetails_DialogFragment_Cancel_Button);
             yardsEntered = view.FindViewById<EditText>(Resource.Id.HoleDetails_DialogFragment_Yards_EditText);
@@ -70,6 +73,16 @@ namespace CompleteGolfAppAndroid
 
 
             return view;
+        }
+
+        public override void OnResume()
+        {
+            base.OnResume();
+
+            //int width = this.Resources.DisplayMetrics.WidthPixels;
+            //int height = this.Resources.DisplayMetrics.HeightPixels;
+
+            //rootLayout.setLayoutParams(new LinearLayout.LayoutParams(width, height));
         }
     }
 }

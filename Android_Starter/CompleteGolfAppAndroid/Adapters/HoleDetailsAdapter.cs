@@ -12,6 +12,8 @@ namespace CompleteGolfAppAndroid
     {
         private List<Tasky.CourseHoleByNumberList> CHBNL;
         private int CourseID;
+        public int holeNumber;
+        public int Position;
 
         public HoleDetailsAdapter(Android.Support.V4.App.FragmentManager fm, List<Tasky.CourseHoleByNumberList> chbnl, int courseID) : base(fm)
         {
@@ -28,8 +30,12 @@ namespace CompleteGolfAppAndroid
 
         public override Android.Support.V4.App.Fragment GetItem(int position)
         {
+            var x = CHBNL.ElementAt(position).HoleNumber;
+            var y = position;
 
-            var x = Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists.ElementAt(position);
+            //Toast.MakeText(null, "hole = " + x.ToString() + " pos = " + y.ToString(), ToastLength.Short).Show();
+
+            var xx = Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists.ElementAt(position);
 
             return (Android.Support.V4.App.Fragment)
                 HoleDetailsFragment.newInstance(CHBNL.ElementAt(position), CourseID);
@@ -40,8 +46,10 @@ namespace CompleteGolfAppAndroid
         public override Java.Lang.ICharSequence GetPageTitleFormatted(int position)
         {
             //var holeNumber = Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists[position].CourseHoles.FirstOrDefault().HoleNumber;
-            var holeNumber = CHBNL.ElementAt(position).HoleNumber.ToString();
+            holeNumber = CHBNL.ElementAt(position).HoleNumber;
+            Position = position;
             return new Java.Lang.String("Hole " + holeNumber.ToString() + " , Par " + Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists[position].CourseHoles.FirstOrDefault().Par);
+
         }
     }
 }

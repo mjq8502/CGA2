@@ -9,6 +9,8 @@ using Android.Support.V4.View;
 using Android.Support.V4.App;
 using Android.Graphics;
 using Tasky;
+using static Android.Support.V4.View.PagerTitleStrip;
+using System;
 
 namespace CompleteGolfAppAndroid.Screens
 {
@@ -16,7 +18,7 @@ namespace CompleteGolfAppAndroid.Screens
     /// View/edit a Task
     /// </summary>
     [Activity(Label = "Course Details")]
-    public class CourseDetailsView_Code : FragmentActivity
+    public class CourseDetailsView_Code : FragmentActivity, ViewPager.IOnPageChangeListener
     {
         Course course = new Course();
         Button cancelDeleteButton;
@@ -31,8 +33,14 @@ namespace CompleteGolfAppAndroid.Screens
         PagerTitleStrip pts;
         LinearLayout linearLayout_CourseNameBasicInfo;
 
+        HoleDetailsAdapter hdAdapter;
+
+        private int holeNumber;
+
+
         CompleteGolfAppAndroid.Adapters.CourseTeeListAdapter courseTeeListAdapter;
         ListView courseTees_ListView;
+        List<Tasky.CourseHoleByNumberList> chbnl;
 
         IList<CourseTee> courseTees;
 
@@ -69,8 +77,7 @@ namespace CompleteGolfAppAndroid.Screens
             courseHolesValue.Text = course.Holes.ToString();
             courseParValue.Text = course.Par.ToString();
 
-
-
+            
             if (addTeeButton != null)
             {
                 addTeeButton.Click += delegate {
@@ -88,18 +95,32 @@ namespace CompleteGolfAppAndroid.Screens
 
             holesViewPager = FindViewById<ViewPager>(Resource.Id.CourseDetailsView_ViewPager_Holes);
 
+            holesViewPager.AddOnPageChangeListener(this);
+
             pts = FindViewById<PagerTitleStrip>(Resource.Id.CourseDetailsView_PagerTitleStrip);
             pts.LongClick += Pts_LongClick;
 
-            List<Tasky.CourseHoleByNumberList> chbnl = new List<Tasky.CourseHoleByNumberList>();
             
-            foreach(Tasky.CourseHoleByNumberList chb in Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists)
+
+            //List<Tasky.CourseHoleByNumberList> chbnl = new List<Tasky.CourseHoleByNumberList>();
+            chbnl = new List<Tasky.CourseHoleByNumberList>();
+
+            foreach (Tasky.CourseHoleByNumberList chb in Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists)
             {
                 chbnl.Add(chb);
             }
 
-            HoleDetailsAdapter hdAdapter = new HoleDetailsAdapter(SupportFragmentManager, chbnl, courseID);
+            //HoleDetailsAdapter hdAdapter = new HoleDetailsAdapter(SupportFragmentManager, chbnl, courseID);
+            hdAdapter = new HoleDetailsAdapter(SupportFragmentManager, chbnl, courseID);
             holesViewPager.Adapter = hdAdapter;
+
+            //var zz = holesViewPager.AddOnPageChangeListener +=  
+               
+
+            //var y = hdAdapter.Position;
+
+            //Toast.MakeText(this, "hole = " + x.ToString() + " pos = " + y.ToString(), ToastLength.Short).Show();
+
 
             ImageView backgroundImage = (ImageView)FindViewById<ImageView>(Resource.Id.CourseDetailsView_BackgroundImage);
             backgroundImage.SetBackgroundResource(Resource.Drawable.Screenshot_20170225_142830);
@@ -107,6 +128,8 @@ namespace CompleteGolfAppAndroid.Screens
             courseTees_ListView.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
             addTeeButton.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
             linearLayout_CourseNameBasicInfo.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
+
+            
 
         }
 
@@ -122,11 +145,14 @@ namespace CompleteGolfAppAndroid.Screens
             ft.AddToBackStack(null);
 
             // Create and show the dialog.
-            CoursePar_DialogFragment newFragment = CoursePar_DialogFragment.NewInstance(null, course.ID, 99, 99);     
+            CoursePar_DialogFragment newFragment = CoursePar_DialogFragment.NewInstance(null, course.ID, holeNumber, 99);     
             newFragment.Dismissed += NewFragment_Dismissed;                                                                                                                                       //Add fragment
             newFragment.Show(ft, "dialog");
 
-            //Toast.MakeText(this, "View Pager Title clicked", ToastLength.Short).Show();
+            //var x = hdAdapter.holeNumber;
+            //var y = hdAdapter.Position;
+
+            //Toast.MakeText(this, "VPT clicked  hole = " + x.ToString() + " pos = " + y.ToString(), ToastLength.Short).Show();
         }
 
 
@@ -179,6 +205,22 @@ namespace CompleteGolfAppAndroid.Screens
                 chList.Add(courseHole);
             }
             //_listView.Adapter = new HoleDetails_GridView_HoleInfo_Adapter(this, chList);
+        }
+
+        public void OnPageScrollStateChanged(int state)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnPageScrolled(int position, float positionOffset, int positionOffsetPixels)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnPageSelected(int position)
+        {
+            holeNumber = position + 1;
+            //throw new NotImplementedException();
         }
     }
 }

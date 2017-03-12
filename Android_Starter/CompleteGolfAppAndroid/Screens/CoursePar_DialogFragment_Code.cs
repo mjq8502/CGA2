@@ -12,16 +12,18 @@ using Android.Widget;
 using Android.Support.V4.App;
 using Tasky.Core;
 using Tasky;
+using Android.Graphics;
 
 namespace CompleteGolfAppAndroid
 {
     public class CoursePar_DialogFragment : Android.App.DialogFragment
     {
-        EditText parEntered;
+        private EditText parEntered;
         private static int CourseID = new int();
         private static int HoleNumber;
         private static int Par;
         public event DialogEventHandler Dismissed;
+        private TextView holeNumberTextView;
 
         //public event DialogEventHandler Dismissed;
 
@@ -38,9 +40,14 @@ namespace CompleteGolfAppAndroid
         {
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.CoursePar_DialogFragmentLayout, container, false);
+            view.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
+
             Button saveButton = view.FindViewById<Button>(Resource.Id.CoursePar_DialogFragment_Save_Button);
             Button cancelButton = view.FindViewById<Button>(Resource.Id.CoursePar_DialogFragment_Cancel_Button);
             parEntered = view.FindViewById<EditText>(Resource.Id.CoursePar_DialogFragment_Par_EditText);
+            holeNumberTextView = view.FindViewById<TextView>(Resource.Id.CoursePar_DialogFragment_HoleNumber_Text_Value);
+
+            holeNumberTextView.Text = HoleNumber.ToString(); ;
 
             saveButton.Click += delegate {
 
