@@ -40,7 +40,7 @@ namespace Tasky
 
         }
         public int HoleNumber { get; set; }
-        public List<CourseHole> CourseHoles { get; set; }
+        public List<CourseTeeHole> CourseHoles { get; set; }
 
         IntPtr IJavaObject.Handle
         {

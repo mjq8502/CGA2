@@ -30,15 +30,15 @@
         android:layout_margin="10dp"
         android:padding="10dp">
         <TextView
-            android:text="Par"
+            android:text="Par: "
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/CoursePar_DialogFragment_Par_TextView" />
         <EditText
             android:text=""
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_width="50dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/CoursePar_DialogFragment_Par_EditText"
             android:layout_marginTop="10dp" />

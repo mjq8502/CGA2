@@ -44,7 +44,8 @@ namespace Tasky.Core
                     "CREATE TABLE [Tees] (_id INTEGER PRIMARY KEY ASC, TeeName NTEXT);",
                     "CREATE TABLE [Courses] (_id INTEGER PRIMARY KEY ASC, CourseName NTEXT, City NTEXT, State NTEXT, CourseHoles INTEGER, CoursePar INTEGER);",
                     "CREATE TABLE [CourseTees] (_id INTEGER PRIMARY KEY ASC, CourseID INTEGER, TeeID INTEGER, CourseReportedYardage INTEGER);",
-                    "CREATE TABLE [Holes] (_id INTEGER PRIMARY KEY ASC, CourseTeeID INTEGER, HoleNumber INTEGER, Par INTEGER, CourseReportedYardage INTEGER, ActualYardage INTEGER);"
+                    "CREATE TABLE [Holes] (_id INTEGER PRIMARY KEY ASC, CourseTeeID INTEGER, HoleNumber INTEGER, CourseReportedYardage INTEGER, ActualYardage INTEGER);",
+                    "CREATE TABLE [CourseHoles] (_id INTEGER PRIMARY KEY ASC, CourseID INTEGER, HoleNumber INTEGER, Par INTEGER);"
                 };
                 foreach (var command in commands)
                 {
@@ -58,16 +59,17 @@ namespace Tasky.Core
             else
             {
 
-                //"CREATE TABLE [CoursePar] (_id INTEGER PRIMARY KEY ASC, CourseID INTEGER, HoleNumber INTEGER, Par INTEGER);",
-                // Database does not exist  or being modified.
+                ////"CREATE TABLE [CourseHoles] (_id INTEGER PRIMARY KEY ASC, CourseID INTEGER, HoleNumber INTEGER, Par INTEGER);",
+                ////Database does not exist  or being modified.
 
                 //connection = new SqliteConnection("Data Source=" + dbPath);
 
                 //connection.Open();
                 //var commands = new[] {
-                //    "DROP TABLE [Holes] ;",
+                //    //"DROP TABLE [Holes] ;",
 
-                //    "CREATE TABLE [Holes] (_id INTEGER PRIMARY KEY ASC, CourseTeeID INTEGER, HoleNumber INTEGER, Par INTEGER, CourseReportedYardage INTEGER, ActualYardage INTEGER);"
+                //    //"CREATE TABLE [CoursePar] (_id INTEGER PRIMARY KEY ASC, CourseID INTEGER, HoleNumber INTEGER, Par INTEGER);"
+                //    "ALTER TABLE [CoursePar] RENAME TO [CourseHoles];"
                 //};
                 //foreach (var command in commands)
                 //{
@@ -196,9 +198,9 @@ namespace Tasky.Core
         }
 
         /// <summary>Convert from DataReader to CourseHoles object</summary>
-        CourseHoleData FromReaderCourseHoleData(SqliteDataReader r)
+        CourseTeeHoleData FromReaderCourseHoleData(SqliteDataReader r)
         {
-            var chd = new CourseHoleData();
+            var chd = new CourseTeeHoleData();
 
 
             if (r["CourseTeeID"] == System.DBNull.Value)
@@ -219,14 +221,14 @@ namespace Tasky.Core
                 chd.HoleNumber = Convert.ToInt32(r["HoleNumber"]);
             }
 
-            if (r["Par"] == System.DBNull.Value)
-            {
-                var j = 7;
-            }
-            else
-            {
-                chd.Par = Convert.ToInt32(r["Par"]);
-            }
+            //if (r["Par"] == System.DBNull.Value)
+            //{
+            //    var j = 7;
+            //}
+            //else
+            //{
+            //    chd.Par = Convert.ToInt32(r["Par"]);
+            //}
 
             if (r["CourseReportedYardage"] == System.DBNull.Value)
             {
@@ -252,9 +254,9 @@ namespace Tasky.Core
         }
 
         /// <summary>Convert from DataReader to CourseHole object</summary>
-        CourseHole FromReaderCourseHole(SqliteDataReader r)
+        CourseTeeHole FromReaderCourseHole(SqliteDataReader r)
         {
-            var ch = new CourseHole();
+            var ch = new CourseTeeHole();
 
 
             return ch;
@@ -627,10 +629,10 @@ namespace Tasky.Core
         #endregion
 
         #region CourseHoles
-        public IEnumerable<CourseHoleData> GetCourseHoleData(int courseID)
+        public IEnumerable<CourseTeeHoleData> GetCourseHoleData(int courseID)
         {
-            List<CourseHoleData> courseHoleDataList;
-            courseHoleDataList = new List<Core.CourseHoleData>();
+            List<CourseTeeHoleData> courseHoleDataList;
+            courseHoleDataList = new List<Core.CourseTeeHoleData>();
 
             lock (locker)
             {
@@ -638,7 +640,7 @@ namespace Tasky.Core
                 connection.Open();
                 using (var command = connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT h._id, h.CourseTeeID, h.HoleNumber, h.Par, h.CourseReportedYardage" + 
+                    command.CommandText = "SELECT h._id, h.CourseTeeID, h.HoleNumber, h.CourseReportedYardage" + 
                                          ", h.ActualYardage, t.TeeName "
                                          + "FROM [CourseTees] ct, [Holes] h, [Tees] t "
                                          + "WHERE ct._id = h.CourseTeeID "
@@ -710,7 +712,6 @@ namespace Tasky.Core
         public int CreateCourseHolesForTee(int courseTeeID, int numberOfHoles)
         {
             int r = 99;
-            int par = 0;
             int courseReportedYardage = 0;
             int actualYardage = 0;
 
@@ -724,10 +725,9 @@ namespace Tasky.Core
                     {
                         using (var command = connection.CreateCommand())
                         {
-                            command.CommandText = "INSERT INTO [Holes] ([CourseTeeID],[HoleNumber],[Par],[CourseReportedYardage],[ActualYardage]) VALUES (?,?,?,?,?)";
+                            command.CommandText = "INSERT INTO [Holes] ([CourseTeeID],[HoleNumber],[CourseReportedYardage],[ActualYardage]) VALUES (?,?,?,?,?)";
                             command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseTeeID });
                             command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = holeNumber });
-                            command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = par });
                             command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseReportedYardage });
                             command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = actualYardage });
                             r = command.ExecuteNonQuery();
@@ -782,22 +782,21 @@ namespace Tasky.Core
             }
         }
 
-        public int SaveCoursePar(int courseParID, int courseID, int holeNumber, int par)
+        public int SaveCourseHole(int courseID, int holeNumber, int par)
         {
             int r;
             lock (locker)
             {
-                if (courseID != 0)
+                if ((courseID != 0) && (holeNumber != 0))
                 {
                     connection = new SqliteConnection("Data Source=" + path);
                     connection.Open();
                     using (var command = connection.CreateCommand())
                     {
-                        command.CommandText = "UPDATE [CoursePar] SET [CourseID] = ?, [HoleNumber] = ?, [Par] = ? WHERE [_id] = ?;";
+                        command.CommandText = "UPDATE [CourseHoles] SET [Par] = ? WHERE [CourseID] = ? AND [HoleNumber] = ?;";
+                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = par });
                         command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseID });
                         command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = holeNumber });
-                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = par });
-                        command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseParID });
                         r = command.ExecuteNonQuery();
                     }
                     connection.Close();
@@ -809,7 +808,7 @@ namespace Tasky.Core
                     connection.Open();
                     using (var command = connection.CreateCommand())
                     {
-                        command.CommandText = "INSERT INTO [CoursePar] ([CourseID],[HoleNumber],[Par]) VALUES (?,?,?)";
+                        command.CommandText = "INSERT INTO [CourseHoles] ([CourseID], [HoleNumber], [Par]) VALUES (?,?,?)";
                         command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseID });
                         command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = holeNumber });
                         command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = par });

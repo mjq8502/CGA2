@@ -20,10 +20,10 @@ namespace CompleteGolfAppAndroid.Adapters
         TextView txtFirst;
         TextView txtSecond;
         public string[] STR;
-        public List<CourseHole> ChList;
+        public List<CourseTeeHole> ChList;
 
         //public HoleDetails_GridView_HoleInfo_Adapter(HoleDetailsFragment c, string[] str) : base()
-        public HoleDetails_GridView_HoleInfo_Adapter(HoleDetailsFragment c, List<CourseHole> chList) : base()
+        public HoleDetails_GridView_HoleInfo_Adapter(HoleDetailsFragment c, List<CourseTeeHole> chList) : base()
         {
             context = c.Activity;
 

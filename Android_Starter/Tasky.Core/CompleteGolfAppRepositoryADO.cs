@@ -126,7 +126,7 @@ namespace Tasky.Core
             return me.db.DeleteCourseTee(id);
         }
 
-        public static IEnumerable<CourseHoleData> GetCourseHoleData(int courseID)
+        public static IEnumerable<CourseTeeHoleData> GetCourseHoleData(int courseID)
         {
             return me.db.GetCourseHoleData(courseID);
         }
@@ -140,6 +140,12 @@ namespace Tasky.Core
         {
             return me.db.UpdateCourseTeeHole(courseTeeID, holeNumber, yards);
         }
+
+        public static int SaveCourseHole(int courseID, int holeNumber, int par)
+        {
+            return me.db.SaveCourseHole(courseID, holeNumber, par);
+        }
+
     }
 }
 

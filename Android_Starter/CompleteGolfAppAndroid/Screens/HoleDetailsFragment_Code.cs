@@ -55,7 +55,7 @@ namespace CompleteGolfAppAndroid
 
             Context context = Android.App.Application.Context;
             
-            List<CourseHole> chList = new List<CourseHole>();
+            List<CourseTeeHole> chList = new List<CourseTeeHole>();
             var zzz = HoleManager.GetCourseHolesByHole(CourseID).CourseHoleDataLists.Where(x => x.HoleNumber == courseHoleByNumberList.HoleNumber).FirstOrDefault().CourseHoles;
             foreach (var courseHole in courseHoleByNumberList.CourseHoles)
             {
@@ -105,7 +105,7 @@ namespace CompleteGolfAppAndroid
         {
             Tasky.GlobalEntities.courseHoleByNumberListList = HoleManager.GetCourseHolesByHole(CourseID);
             var updatedCourseHoles = HoleManager.GetCourseHolesByHole(CourseID);
-            List<CourseHole> chList = new List<CourseHole>();
+            List<CourseTeeHole> chList = new List<CourseTeeHole>();
             foreach (var courseHole in updatedCourseHoles.CourseHoleDataLists[currentHoleNumber-1].CourseHoles)
             {
                 chList.Add(courseHole);

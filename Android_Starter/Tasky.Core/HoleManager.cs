@@ -24,14 +24,14 @@ namespace Tasky.Core
         //    return CompleteGolfAppRepositoryADO.GetCourse(newCourseName);
         //}
 
-        public static IList<CourseHoleData> GetCourseHoleData(int courseID)
+        public static IList<CourseTeeHoleData> GetCourseHoleData(int courseID)
         {
-            return new List<CourseHoleData>(CompleteGolfAppRepositoryADO.GetCourseHoleData(courseID));
+            return new List<CourseTeeHoleData>(CompleteGolfAppRepositoryADO.GetCourseHoleData(courseID));
         }
 
         public static CourseHoleByNumberListList GetCourseHolesByHole(int courseID)
         {
-            IEnumerable<CourseHoleData> chd = HoleManager.GetCourseHoleData(courseID);
+            IEnumerable<CourseTeeHoleData> chd = HoleManager.GetCourseHoleData(courseID);
 
             #region courseHolesByHole
             var courseHolesByHole = new CourseHoleByNumberListList
@@ -49,14 +49,14 @@ namespace Tasky.Core
                         g.HoleNumber,
                         g.ActualYardage,
                         g.CourseReportedYardage,
-                        g.Par,
+                        //g.Par,
                         g.TeeName
 
-                    }).Select(ch2 => new CourseHole
+                    }).Select(ch2 => new CourseTeeHole
                     {
                         CourseTeeID = ch2.Key.CourseTeeID,
                         HoleNumber = ch2.Key.HoleNumber,
-                        Par = ch2.Key.Par,
+                        //Par = ch2.Key.Par,
                         CourseReportedYardage = ch2.Key.CourseReportedYardage,
                         ActualYardage = ch2.Key.ActualYardage,
                         TeeName = ch2.Key.TeeName
@@ -78,6 +78,11 @@ namespace Tasky.Core
         public static int UpdateCourseTeeHole(int courseTeeID, int holeNumber, int yards)
         {
             return CompleteGolfAppRepositoryADO.UpdateCourseTeeHole(courseTeeID, holeNumber, yards);
+        }
+
+        public static int SaveCourseHole(int courseID, int holeNumber, int par)
+        {
+            return CompleteGolfAppRepositoryADO.SaveCourseHole(courseID, holeNumber, par);
         }
 
         //public static int DeleteCourse(int id)

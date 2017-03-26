@@ -57,6 +57,7 @@
     <Compile Include="CompleteGolfAppRepositoryADO.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="CourseHole.cs" />
+    <Compile Include="CourseTeeHole.cs" />
     <Compile Include="CourseManager.cs" />
     <Compile Include="CourseTee.cs" />
     <Compile Include="CourseTeeManager.cs" />

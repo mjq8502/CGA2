@@ -114,13 +114,6 @@ namespace CompleteGolfAppAndroid.Screens
             hdAdapter = new HoleDetailsAdapter(SupportFragmentManager, chbnl, courseID);
             holesViewPager.Adapter = hdAdapter;
 
-            //var zz = holesViewPager.AddOnPageChangeListener +=  
-               
-
-            //var y = hdAdapter.Position;
-
-            //Toast.MakeText(this, "hole = " + x.ToString() + " pos = " + y.ToString(), ToastLength.Short).Show();
-
 
             ImageView backgroundImage = (ImageView)FindViewById<ImageView>(Resource.Id.CourseDetailsView_BackgroundImage);
             backgroundImage.SetBackgroundResource(Resource.Drawable.Screenshot_20170225_142830);
@@ -144,15 +137,12 @@ namespace CompleteGolfAppAndroid.Screens
             }
             ft.AddToBackStack(null);
 
+            var zz = chbnl;
+
             // Create and show the dialog.
             CoursePar_DialogFragment newFragment = CoursePar_DialogFragment.NewInstance(null, course.ID, holeNumber, 99);     
             newFragment.Dismissed += NewFragment_Dismissed;                                                                                                                                       //Add fragment
             newFragment.Show(ft, "dialog");
-
-            //var x = hdAdapter.holeNumber;
-            //var y = hdAdapter.Position;
-
-            //Toast.MakeText(this, "VPT clicked  hole = " + x.ToString() + " pos = " + y.ToString(), ToastLength.Short).Show();
         }
 
 
@@ -197,10 +187,10 @@ namespace CompleteGolfAppAndroid.Screens
 
         private void NewFragment_Dismissed(object sender, DialogEventArgs args)
         {
-            Tasky.GlobalEntities.courseHoleByNumberListList = HoleManager.GetCourseHolesByHole(999);
-            var updatedCourseHoles = HoleManager.GetCourseHolesByHole(999);
-            List<CourseHole> chList = new List<CourseHole>();
-            foreach (var courseHole in updatedCourseHoles.CourseHoleDataLists[999 - 1].CourseHoles)
+            Tasky.GlobalEntities.courseHoleByNumberListList = HoleManager.GetCourseHolesByHole(course.ID);
+            var updatedCourseHoles = HoleManager.GetCourseHolesByHole(course.ID);
+            List<CourseTeeHole> chList = new List<CourseTeeHole>();
+            foreach (var courseHole in updatedCourseHoles.CourseHoleDataLists[0].CourseHoles)
             {
                 chList.Add(courseHole);
             }
@@ -209,17 +199,19 @@ namespace CompleteGolfAppAndroid.Screens
 
         public void OnPageScrollStateChanged(int state)
         {
+            
             //throw new NotImplementedException();
         }
 
         public void OnPageScrolled(int position, float positionOffset, int positionOffsetPixels)
         {
+            holeNumber = position + 1;  // This is called about three times on a swipe, but always has the destination position correct at the end.
             //throw new NotImplementedException();
         }
 
         public void OnPageSelected(int position)
         {
-            holeNumber = position + 1;
+            //holeNumber = position + 1;
             //throw new NotImplementedException();
         }
     }

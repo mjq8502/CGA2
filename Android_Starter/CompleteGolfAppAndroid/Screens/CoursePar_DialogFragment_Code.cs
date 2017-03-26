@@ -25,8 +25,6 @@ namespace CompleteGolfAppAndroid
         public event DialogEventHandler Dismissed;
         private TextView holeNumberTextView;
 
-        //public event DialogEventHandler Dismissed;
-
         public static CoursePar_DialogFragment NewInstance(Bundle bundle, int courseId, int holeNumber, int par)
         {
             CoursePar_DialogFragment fragment = new CoursePar_DialogFragment();
@@ -54,7 +52,7 @@ namespace CompleteGolfAppAndroid
                 int par = 0;
                 Int32.TryParse(parEntered.Text, out par);
 
-                HoleManager.UpdateCourseTeeHole(CourseID, HoleNumber, par);
+                HoleManager.SaveCourseHole(CourseID, HoleNumber, par);
 
                 //Toast.MakeText(Activity, "Hole info saved!" + " " + yards.ToString(), ToastLength.Long).Show();
                 if (null != Dismissed)
