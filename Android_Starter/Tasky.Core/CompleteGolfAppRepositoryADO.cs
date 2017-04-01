@@ -141,9 +141,14 @@ namespace Tasky.Core
             return me.db.UpdateCourseTeeHole(courseTeeID, holeNumber, yards);
         }
 
-        public static int SaveCourseHole(int courseID, int holeNumber, int par)
+        public static int SaveCourseHolePar(int courseID, int holeNumber, int par)
         {
-            return me.db.SaveCourseHole(courseID, holeNumber, par);
+            return me.db.SaveCourseHolePar(courseID, holeNumber, par);
+        }
+
+        public static IEnumerable<CourseHoleParData> GetCourseHoleParData(int courseID)
+        {
+            return me.db.GetCourseHoleParData(courseID);
         }
 
     }

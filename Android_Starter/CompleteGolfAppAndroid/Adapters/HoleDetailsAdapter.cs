@@ -48,7 +48,7 @@ namespace CompleteGolfAppAndroid
             //var holeNumber = Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists[position].CourseHoles.FirstOrDefault().HoleNumber;
             holeNumber = CHBNL.ElementAt(position).HoleNumber;
             Position = position;
-            return new Java.Lang.String("Hole " + holeNumber.ToString() + " , Par " + Tasky.GlobalEntities.courseHoleByNumberListList.CourseHoleDataLists[position].CourseHoles.FirstOrDefault().Par);
+            return new Java.Lang.String("Hole " + holeNumber.ToString() + " , Par " + Tasky.GlobalEntities.courseHoleParByNumberListList.CourseHoleParDataLists[position].CourseHolePars.FirstOrDefault().Par);
 
         }
     }

@@ -52,7 +52,7 @@ namespace CompleteGolfAppAndroid
                 int par = 0;
                 Int32.TryParse(parEntered.Text, out par);
 
-                HoleManager.SaveCourseHole(CourseID, HoleNumber, par);
+                CourseHoleParManager.SaveCourseHole(CourseID, HoleNumber, par);
 
                 //Toast.MakeText(Activity, "Hole info saved!" + " " + yards.ToString(), ToastLength.Long).Show();
                 if (null != Dismissed)

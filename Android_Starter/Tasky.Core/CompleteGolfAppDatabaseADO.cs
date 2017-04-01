@@ -253,6 +253,53 @@ namespace Tasky.Core
             return chd;
         }
 
+        /// <summary>Convert from DataReader to CourseHolePar object</summary>
+        CourseHoleParData FromReaderCourseHoleParData(SqliteDataReader r)
+        {
+            var chd = new CourseHoleParData();
+
+
+            if (r["_id"] == System.DBNull.Value)
+            {
+                var j = 7;
+            }
+            else
+            {
+                chd._id = Convert.ToInt32(r["_id"]);
+            }
+
+            if (r["CourseID"] == System.DBNull.Value)
+            {
+                var j = 7;
+            }
+            else
+            {
+                chd.CourseID = Convert.ToInt32(r["CourseID"]);
+            }
+
+            if (r["HoleNumber"] == System.DBNull.Value)
+            {
+                var j = 7;
+            }
+            else
+            {
+                chd.HoleNumber = Convert.ToInt32(r["HoleNumber"]);
+            }
+
+            if (r["Par"] == System.DBNull.Value)
+            {
+                var j = 7;
+            }
+            else
+            {
+                chd.Par = Convert.ToInt32(r["Par"]);
+            }
+
+
+            return chd;
+        }
+
+
         /// <summary>Convert from DataReader to CourseHole object</summary>
         CourseTeeHole FromReaderCourseHole(SqliteDataReader r)
         {
@@ -782,7 +829,7 @@ namespace Tasky.Core
             }
         }
 
-        public int SaveCourseHole(int courseID, int holeNumber, int par)
+        public int SaveCourseHolePar(int courseID, int holeNumber, int par)
         {
             int r;
             lock (locker)
@@ -820,6 +867,35 @@ namespace Tasky.Core
 
             }
         }
+
+        public IEnumerable<CourseHoleParData> GetCourseHoleParData(int courseID)
+        {
+            List<CourseHoleParData> courseHoleDataList;
+            courseHoleDataList = new List<Core.CourseHoleParData>();
+
+            lock (locker)
+            {
+                connection = new SqliteConnection("Data Source=" + path);
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT ch._id, ch.CourseID, ch.HoleNumber, ch.Par " 
+                                         + "FROM [CourseHoles] ch "
+                                         + "WHERE ch.CourseID = ? "
+                                         + "ORDER BY ch.holeNumber";
+                    command.Parameters.Add(new SqliteParameter(DbType.Int32) { Value = courseID });
+                    var r = command.ExecuteReader();
+                    while (r.Read())
+                    {
+                        courseHoleDataList.Add(FromReaderCourseHoleParData(r));
+                    }
+                }
+                connection.Close();
+            }
+            return courseHoleDataList;
+        }
+
+
 
         //public CourseTee GetCourseTee(int id)
         //{

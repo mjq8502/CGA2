@@ -92,6 +92,7 @@ namespace CompleteGolfAppAndroid.Screens
 
 
             Tasky.GlobalEntities.courseHoleByNumberListList = HoleManager.GetCourseHolesByHole(course.ID);
+            Tasky.GlobalEntities.courseHoleParByNumberListList = CourseHoleParManager.GetCourseHoleParsByHole(courseID);
 
             holesViewPager = FindViewById<ViewPager>(Resource.Id.CourseDetailsView_ViewPager_Holes);
 
@@ -187,13 +188,17 @@ namespace CompleteGolfAppAndroid.Screens
 
         private void NewFragment_Dismissed(object sender, DialogEventArgs args)
         {
-            Tasky.GlobalEntities.courseHoleByNumberListList = HoleManager.GetCourseHolesByHole(course.ID);
-            var updatedCourseHoles = HoleManager.GetCourseHolesByHole(course.ID);
-            List<CourseTeeHole> chList = new List<CourseTeeHole>();
-            foreach (var courseHole in updatedCourseHoles.CourseHoleDataLists[0].CourseHoles)
-            {
-                chList.Add(courseHole);
-            }
+            Tasky.GlobalEntities.courseHoleParByNumberListList = CourseHoleParManager.GetCourseHoleParsByHole(course.ID);
+            //var updatedCourseHoles = HoleManager.GetCourseHolesByHole(course.ID);
+            //List<CourseTeeHole> chList = new List<CourseTeeHole>();
+            //foreach (var courseHole in updatedCourseHoles.CourseHoleDataLists[0].CourseHoles)
+            //{
+            //    chList.Add(courseHole);
+            //}
+            hdAdapter = new HoleDetailsAdapter(SupportFragmentManager, chbnl, course.ID);
+            holesViewPager.Adapter = hdAdapter;
+
+
             //_listView.Adapter = new HoleDetails_GridView_HoleInfo_Adapter(this, chList);
         }
 

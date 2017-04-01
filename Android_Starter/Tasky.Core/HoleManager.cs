@@ -14,15 +14,6 @@ namespace Tasky.Core
         {
         }
 
-        //public static Course GetCourse(int id)
-        //{
-        //    return CompleteGolfAppRepositoryADO.GetCourse(id);
-        //}
-
-        //public static Course GetCourse(string newCourseName)
-        //{
-        //    return CompleteGolfAppRepositoryADO.GetCourse(newCourseName);
-        //}
 
         public static IList<CourseTeeHoleData> GetCourseHoleData(int courseID)
         {
@@ -80,10 +71,6 @@ namespace Tasky.Core
             return CompleteGolfAppRepositoryADO.UpdateCourseTeeHole(courseTeeID, holeNumber, yards);
         }
 
-        public static int SaveCourseHole(int courseID, int holeNumber, int par)
-        {
-            return CompleteGolfAppRepositoryADO.SaveCourseHole(courseID, holeNumber, par);
-        }
 
         //public static int DeleteCourse(int id)
         //{
