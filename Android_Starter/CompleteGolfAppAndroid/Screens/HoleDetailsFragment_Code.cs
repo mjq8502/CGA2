@@ -80,7 +80,8 @@ namespace CompleteGolfAppAndroid
             {
                 
                 var selected = courseHoleByNumberList.CourseHoles[e.Position];     //list[e.Position];
-                currentHoleNumber = selected.HoleNumber;
+
+                currentHoleNumber = courseHoleByNumberList.HoleNumber;
                 FragmentTransaction ft = FragmentManager.BeginTransaction();
                 //Remove fragment else it will crash as it is already added to backstack
                 Fragment prev = FragmentManager.FindFragmentByTag("dialog");
@@ -90,7 +91,7 @@ namespace CompleteGolfAppAndroid
                 }
                 ft.AddToBackStack(null);
                 // Create and show the dialog.
-                HoleDetails_DialogFragment newFragment = HoleDetails_DialogFragment.NewInstance(null, selected.CourseTeeID, selected.HoleNumber, selected.ActualYardage, selected.Par);           //(null);
+                HoleDetails_DialogFragment newFragment = HoleDetails_DialogFragment.NewInstance(null, selected.CourseTeeID, currentHoleNumber, selected.ActualYardage, selected.Par);           //(null);
                 newFragment.Dismissed += NewFragment_Dismissed;                                                                                                                                       //Add fragment
                 newFragment.Show(ft, "dialog");
 

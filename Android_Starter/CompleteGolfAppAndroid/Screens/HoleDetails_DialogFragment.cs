@@ -45,6 +45,9 @@ namespace CompleteGolfAppAndroid
             Button saveButton = view.FindViewById<Button>(Resource.Id.HoleDetails_DialogFragment_Save_Button);
             Button cancelButton = view.FindViewById<Button>(Resource.Id.HoleDetails_DialogFragment_Cancel_Button);
             yardsEntered = view.FindViewById<EditText>(Resource.Id.HoleDetails_DialogFragment_Yards_EditText);
+            TextView holeNumber = view.FindViewById<TextView>(Resource.Id.HoleDetails_DialogFragment_HoleNumber_TextView_Value);
+
+            holeNumber.Text = HoleNumber.ToString();
 
             saveButton.Click += delegate {
 

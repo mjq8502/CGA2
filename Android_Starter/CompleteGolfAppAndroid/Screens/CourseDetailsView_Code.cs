@@ -35,7 +35,7 @@ namespace CompleteGolfAppAndroid.Screens
 
         HoleDetailsAdapter hdAdapter;
 
-        private int holeNumber;
+        public int holeNumber;
 
 
         CompleteGolfAppAndroid.Adapters.CourseTeeListAdapter courseTeeListAdapter;
@@ -191,13 +191,13 @@ namespace CompleteGolfAppAndroid.Screens
             Tasky.GlobalEntities.courseHoleParByNumberListList = CourseHoleParManager.GetCourseHoleParsByHole(course.ID);
             //var updatedCourseHoles = HoleManager.GetCourseHolesByHole(course.ID);
             //List<CourseTeeHole> chList = new List<CourseTeeHole>();
-            //foreach (var courseHole in updatedCourseHoles.CourseHoleDataLists[0].CourseHoles)
+            //foreach (var courseHolePar in Tasky.GlobalEntities.courseHoleParByNumberListList.CourseHoleParDataLists[holeNumber].CourseHolePars)
             //{
             //    chList.Add(courseHole);
             //}
             hdAdapter = new HoleDetailsAdapter(SupportFragmentManager, chbnl, course.ID);
             holesViewPager.Adapter = hdAdapter;
-
+            holesViewPager.SetCurrentItem(holeNumber - 1, true);
 
             //_listView.Adapter = new HoleDetails_GridView_HoleInfo_Adapter(this, chList);
         }

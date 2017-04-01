@@ -216,98 +216,101 @@ namespace CompleteGolfAppAndroid
 			// aapt resource value: 0x7f050022
 			public const int Courses_ListView_CourseList = 2131034146;
 			
+			// aapt resource value: 0x7f050033
+			public const int HoleDetails_Button_Cancel2 = 2131034163;
+			
 			// aapt resource value: 0x7f050032
-			public const int HoleDetails_Button_Cancel2 = 2131034162;
+			public const int HoleDetails_Button_SaveExit2 = 2131034162;
 			
 			// aapt resource value: 0x7f050031
-			public const int HoleDetails_Button_SaveExit2 = 2131034161;
+			public const int HoleDetails_Button_SaveNext2 = 2131034161;
 			
-			// aapt resource value: 0x7f050030
-			public const int HoleDetails_Button_SaveNext2 = 2131034160;
-			
-			// aapt resource value: 0x7f05002e
-			public const int HoleDetails_DialogFragment_Cancel_Button = 2131034158;
+			// aapt resource value: 0x7f05002f
+			public const int HoleDetails_DialogFragment_Cancel_Button = 2131034159;
 			
 			// aapt resource value: 0x7f05002a
 			public const int HoleDetails_DialogFragment_HoleNumber_TextView_Label = 2131034154;
 			
+			// aapt resource value: 0x7f05002b
+			public const int HoleDetails_DialogFragment_HoleNumber_TextView_Value = 2131034155;
+			
+			// aapt resource value: 0x7f05002e
+			public const int HoleDetails_DialogFragment_Save_Button = 2131034158;
+			
 			// aapt resource value: 0x7f05002d
-			public const int HoleDetails_DialogFragment_Save_Button = 2131034157;
+			public const int HoleDetails_DialogFragment_Yards_EditText = 2131034157;
 			
 			// aapt resource value: 0x7f05002c
-			public const int HoleDetails_DialogFragment_Yards_EditText = 2131034156;
+			public const int HoleDetails_DialogFragment_Yards_TextView = 2131034156;
 			
-			// aapt resource value: 0x7f05002b
-			public const int HoleDetails_DialogFragment_Yards_TextView = 2131034155;
+			// aapt resource value: 0x7f050030
+			public const int HoleDetails_ListView = 2131034160;
 			
-			// aapt resource value: 0x7f05002f
-			public const int HoleDetails_ListView = 2131034159;
-			
-			// aapt resource value: 0x7f050037
-			public const int HoleNumberText = 2131034167;
-			
-			// aapt resource value: 0x7f050039
-			public const int Home_Button_Courses = 2131034169;
-			
-			// aapt resource value: 0x7f05003b
-			public const int Home_Button_Scores = 2131034171;
+			// aapt resource value: 0x7f050038
+			public const int HoleNumberText = 2131034168;
 			
 			// aapt resource value: 0x7f05003a
-			public const int Home_Button_Tees = 2131034170;
-			
-			// aapt resource value: 0x7f050044
-			public const int TeeListActualYardageText = 2131034180;
-			
-			// aapt resource value: 0x7f050043
-			public const int TeeListCourseReportedYardageText = 2131034179;
-			
-			// aapt resource value: 0x7f050042
-			public const int TeeListNameText = 2131034178;
-			
-			// aapt resource value: 0x7f050034
-			public const int Tee_TextView = 2131034164;
-			
-			// aapt resource value: 0x7f050040
-			public const int TeesDetail_Button_Cancel = 2131034176;
-			
-			// aapt resource value: 0x7f05003f
-			public const int TeesDetail_Button_Delete = 2131034175;
-			
-			// aapt resource value: 0x7f05003e
-			public const int TeesDetail_Button_Save = 2131034174;
-			
-			// aapt resource value: 0x7f05003d
-			public const int TeesDetail_EditText_TeeValue = 2131034173;
+			public const int Home_Button_Courses = 2131034170;
 			
 			// aapt resource value: 0x7f05003c
-			public const int TeesDetail_TextView_TeeLabel = 2131034172;
+			public const int Home_Button_Scores = 2131034172;
 			
-			// aapt resource value: 0x7f050047
-			public const int Tees_Button_AddTee = 2131034183;
-			
-			// aapt resource value: 0x7f050046
-			public const int Tees_ListView_TeeList = 2131034182;
+			// aapt resource value: 0x7f05003b
+			public const int Home_Button_Tees = 2131034171;
 			
 			// aapt resource value: 0x7f050045
-			public const int Tees_TextView_Label = 2131034181;
+			public const int TeeListActualYardageText = 2131034181;
+			
+			// aapt resource value: 0x7f050044
+			public const int TeeListCourseReportedYardageText = 2131034180;
+			
+			// aapt resource value: 0x7f050043
+			public const int TeeListNameText = 2131034179;
 			
 			// aapt resource value: 0x7f050035
-			public const int Yards_TextView = 2131034165;
+			public const int Tee_TextView = 2131034165;
+			
+			// aapt resource value: 0x7f050041
+			public const int TeesDetail_Button_Cancel = 2131034177;
+			
+			// aapt resource value: 0x7f050040
+			public const int TeesDetail_Button_Delete = 2131034176;
+			
+			// aapt resource value: 0x7f05003f
+			public const int TeesDetail_Button_Save = 2131034175;
+			
+			// aapt resource value: 0x7f05003e
+			public const int TeesDetail_EditText_TeeValue = 2131034174;
+			
+			// aapt resource value: 0x7f05003d
+			public const int TeesDetail_TextView_TeeLabel = 2131034173;
+			
+			// aapt resource value: 0x7f050048
+			public const int Tees_Button_AddTee = 2131034184;
+			
+			// aapt resource value: 0x7f050047
+			public const int Tees_ListView_TeeList = 2131034183;
+			
+			// aapt resource value: 0x7f050046
+			public const int Tees_TextView_Label = 2131034182;
+			
+			// aapt resource value: 0x7f050036
+			public const int Yards_TextView = 2131034166;
 			
 			// aapt resource value: 0x7f050018
 			public const int lstItemCourse = 2131034136;
 			
-			// aapt resource value: 0x7f050036
-			public const int lstItemHole = 2131034166;
+			// aapt resource value: 0x7f050037
+			public const int lstItemHole = 2131034167;
 			
-			// aapt resource value: 0x7f050041
-			public const int lstItemTee = 2131034177;
+			// aapt resource value: 0x7f050042
+			public const int lstItemTee = 2131034178;
 			
-			// aapt resource value: 0x7f050038
-			public const int qStatusImage = 2131034168;
+			// aapt resource value: 0x7f050039
+			public const int qStatusImage = 2131034169;
 			
-			// aapt resource value: 0x7f050033
-			public const int relativeLayout1 = 2131034163;
+			// aapt resource value: 0x7f050034
+			public const int relativeLayout1 = 2131034164;
 			
 			static Id()
 			{

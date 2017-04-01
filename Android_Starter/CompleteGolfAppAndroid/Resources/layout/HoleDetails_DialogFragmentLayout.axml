@@ -15,13 +15,14 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/HoleDetails_DialogFragment_HoleNumber_TextView_Label" />
+            android:id="@+id/HoleDetails_DialogFragment_HoleNumber_TextView_Label"
+            android:layout_marginTop="10dp"/>
         <TextView
             android:text=""
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:id="@+id/HoleDetails_DialogFragment_HoleNumber_TextView_Label"
+            android:id="@+id/HoleDetails_DialogFragment_HoleNumber_TextView_Value"
             android:layout_marginTop="10dp" />
     </LinearLayout>
     <LinearLayout
