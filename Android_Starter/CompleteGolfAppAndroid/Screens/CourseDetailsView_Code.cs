@@ -29,7 +29,6 @@ namespace CompleteGolfAppAndroid.Screens
         TextView tvHoles;
         Button addTeeButton;
         ViewPager holesViewPager;
-        TreeCatalog treeCatalog;
         PagerTitleStrip pts;
         LinearLayout linearLayout_CourseNameBasicInfo;
 

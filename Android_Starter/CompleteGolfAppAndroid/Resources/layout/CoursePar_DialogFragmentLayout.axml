@@ -11,17 +11,19 @@
         android:layout_margin="40dp"
         android:padding="10dp">
         <TextView
+            android:id="@+id/CoursePar_DialogFragment_HoleNumber_TextView_Label" 
             android:text="Hole Number: "
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/CoursePar_DialogFragment_HoleNumber_TextView_Label" />
+            />
         <TextView
+            android:id="@+id/CoursePar_DialogFragment_HoleNumber_Text_Value"
             android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/CoursePar_DialogFragment_HoleNumber_Text_Value" />
+             />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -30,29 +32,30 @@
         android:layout_margin="10dp"
         android:padding="10dp">
         <TextView
+            android:id="@+id/CoursePar_DialogFragment_Par_TextView"
             android:text="Par: "
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/CoursePar_DialogFragment_Par_TextView" />
+            android:layout_marginTop="10dp"  />
         <EditText
+            android:id="@+id/CoursePar_DialogFragment_Par_EditText"
             android:text=""
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/CoursePar_DialogFragment_Par_EditText"
             android:layout_marginTop="10dp" />
     </LinearLayout>
     <Button
+        android:id="@+id/CoursePar_DialogFragment_Save_Button"
         android:text="Save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/CoursePar_DialogFragment_Save_Button"
         android:layout_marginTop="10dp" />
     <Button
+        android:id="@+id/CoursePar_DialogFragment_Cancel_Button"
         android:text="Cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/CoursePar_DialogFragment_Cancel_Button"
         android:layout_marginTop="10dp" />
 </LinearLayout>
