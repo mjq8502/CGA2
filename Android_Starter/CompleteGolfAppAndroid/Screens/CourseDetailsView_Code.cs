@@ -9,8 +9,7 @@ using Android.Support.V4.View;
 using Android.Support.V4.App;
 using Android.Graphics;
 using Tasky;
-using static Android.Support.V4.View.PagerTitleStrip;
-using System;
+using Android.Views.InputMethods;
 
 namespace CompleteGolfAppAndroid.Screens
 {
@@ -122,8 +121,6 @@ namespace CompleteGolfAppAndroid.Screens
             addTeeButton.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
             linearLayout_CourseNameBasicInfo.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
 
-            
-
         }
 
         private void Pts_LongClick(object sender, System.EventArgs e)
@@ -143,6 +140,7 @@ namespace CompleteGolfAppAndroid.Screens
             CoursePar_DialogFragment newFragment = CoursePar_DialogFragment.NewInstance(null, course.ID, holeNumber, 99);     
             newFragment.Dismissed += NewFragment_Dismissed;                                                                                                                                       //Add fragment
             newFragment.Show(ft, "dialog");
+            
         }
 
 
@@ -199,6 +197,7 @@ namespace CompleteGolfAppAndroid.Screens
             holesViewPager.SetCurrentItem(holeNumber - 1, true);
 
             //_listView.Adapter = new HoleDetails_GridView_HoleInfo_Adapter(this, chList);
+
         }
 
         public void OnPageScrollStateChanged(int state)

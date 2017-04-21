@@ -7,6 +7,7 @@ using Tasky.Core;
 using CompleteGolfAppAndroid;
 using System;
 using Android.Graphics;
+using Android.Views.InputMethods;
 
 namespace CompleteGolfAppAndroid.Screens
 {
@@ -49,6 +50,8 @@ namespace CompleteGolfAppAndroid.Screens
                 teesButton.Alpha = 128;  // 50% transparent
                 coursesButton.Alpha = 128;  // 50% transparent
                 scoresButton.Alpha = 128;  // 50% transparent
+
+                Tasky.GlobalEntities.imm = (InputMethodManager)GetSystemService(Android.Content.Context.InputMethodService);
 
                 // wire up button handlers
 

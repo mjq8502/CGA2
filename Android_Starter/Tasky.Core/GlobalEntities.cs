@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Java.IO;
 using Tasky.Core;
+using Android.Views.InputMethods;
 
 namespace Tasky
 {
@@ -19,6 +20,7 @@ namespace Tasky
         public static int testINT;
         public static CourseHoleByNumberListList courseHoleByNumberListList;
         public static CourseHoleParByNumberListList courseHoleParByNumberListList;
+        public static InputMethodManager imm;
     }
 
     public class CourseHoleByNumberListList
