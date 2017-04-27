@@ -49,6 +49,29 @@ namespace CompleteGolfAppAndroid
 
             holeNumber.Text = HoleNumber.ToString();
 
+
+            yardsEntered.KeyPress += (object sender, View.KeyEventArgs e) =>
+            {
+                e.Handled = false;
+                if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+                {
+                    //add your logic here
+                    e.Handled = true;
+
+                    int yards = 0;
+                    Int32.TryParse(yardsEntered.Text, out yards);
+
+                    HoleManager.UpdateCourseTeeHole(CourseTeeID, HoleNumber, yards);
+
+                    if (null != Dismissed)
+                    {
+                        Dismissed(this, new DialogEventArgs { Text = "Saved" });
+                    }
+
+                    Dismiss();
+                }
+            };
+
             saveButton.Click += delegate {
 
                 int yards = 0;
