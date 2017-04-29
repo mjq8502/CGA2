@@ -51,34 +51,37 @@ namespace CompleteGolfAppAndroid
 			public const int coconut = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int elm = 2130837506;
+			public const int ColbertHills = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int fir = 2130837507;
+			public const int elm = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int Icon = 2130837508;
+			public const int fir = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int larch = 2130837509;
+			public const int Icon = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int maple = 2130837510;
+			public const int larch = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int oak = 2130837511;
+			public const int maple = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int pine = 2130837512;
+			public const int oak = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int Screenshot_20170212_094404 = 2130837513;
+			public const int pine = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int Screenshot_20170225_142535 = 2130837514;
+			public const int Screenshot_20170212_094404 = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int Screenshot_20170225_142830 = 2130837515;
+			public const int Screenshot_20170225_142535 = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int Screenshot_20170225_142830 = 2130837516;
 			
 			static Drawable()
 			{
@@ -258,41 +261,47 @@ namespace CompleteGolfAppAndroid
 			// aapt resource value: 0x7f05003b
 			public const int Home_Button_Tees = 2131034171;
 			
+			// aapt resource value: 0x7f05003d
+			public const int ScoresEntry_BackgroundImage = 2131034173;
+			
+			// aapt resource value: 0x7f05003e
+			public const int ScoresEntry_Button_AddNew = 2131034174;
+			
+			// aapt resource value: 0x7f050047
+			public const int TeeListActualYardageText = 2131034183;
+			
+			// aapt resource value: 0x7f050046
+			public const int TeeListCourseReportedYardageText = 2131034182;
+			
 			// aapt resource value: 0x7f050045
-			public const int TeeListActualYardageText = 2131034181;
-			
-			// aapt resource value: 0x7f050044
-			public const int TeeListCourseReportedYardageText = 2131034180;
-			
-			// aapt resource value: 0x7f050043
-			public const int TeeListNameText = 2131034179;
+			public const int TeeListNameText = 2131034181;
 			
 			// aapt resource value: 0x7f050035
 			public const int Tee_TextView = 2131034165;
 			
+			// aapt resource value: 0x7f050043
+			public const int TeesDetail_Button_Cancel = 2131034179;
+			
+			// aapt resource value: 0x7f050042
+			public const int TeesDetail_Button_Delete = 2131034178;
+			
 			// aapt resource value: 0x7f050041
-			public const int TeesDetail_Button_Cancel = 2131034177;
+			public const int TeesDetail_Button_Save = 2131034177;
 			
 			// aapt resource value: 0x7f050040
-			public const int TeesDetail_Button_Delete = 2131034176;
+			public const int TeesDetail_EditText_TeeValue = 2131034176;
 			
 			// aapt resource value: 0x7f05003f
-			public const int TeesDetail_Button_Save = 2131034175;
+			public const int TeesDetail_TextView_TeeLabel = 2131034175;
 			
-			// aapt resource value: 0x7f05003e
-			public const int TeesDetail_EditText_TeeValue = 2131034174;
+			// aapt resource value: 0x7f05004a
+			public const int Tees_Button_AddTee = 2131034186;
 			
-			// aapt resource value: 0x7f05003d
-			public const int TeesDetail_TextView_TeeLabel = 2131034173;
+			// aapt resource value: 0x7f050049
+			public const int Tees_ListView_TeeList = 2131034185;
 			
 			// aapt resource value: 0x7f050048
-			public const int Tees_Button_AddTee = 2131034184;
-			
-			// aapt resource value: 0x7f050047
-			public const int Tees_ListView_TeeList = 2131034183;
-			
-			// aapt resource value: 0x7f050046
-			public const int Tees_TextView_Label = 2131034182;
+			public const int Tees_TextView_Label = 2131034184;
 			
 			// aapt resource value: 0x7f050036
 			public const int Yards_TextView = 2131034166;
@@ -303,8 +312,8 @@ namespace CompleteGolfAppAndroid
 			// aapt resource value: 0x7f050037
 			public const int lstItemHole = 2131034167;
 			
-			// aapt resource value: 0x7f050042
-			public const int lstItemTee = 2131034178;
+			// aapt resource value: 0x7f050044
+			public const int lstItemTee = 2131034180;
 			
 			// aapt resource value: 0x7f050039
 			public const int qStatusImage = 2131034169;
@@ -359,13 +368,16 @@ namespace CompleteGolfAppAndroid
 			public const int Home_Layout = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int TeeDetails_Layout = 2130903051;
+			public const int ScoresEntry_Layout = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int TeeListItem = 2130903052;
+			public const int TeeDetails_Layout = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int Tees_Layout = 2130903053;
+			public const int TeeListItem = 2130903053;
+			
+			// aapt resource value: 0x7f03000e
+			public const int Tees_Layout = 2130903054;
 			
 			static Layout()
 			{

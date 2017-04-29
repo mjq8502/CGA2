@@ -69,6 +69,13 @@ namespace CompleteGolfAppAndroid.Screens
                     };
                 }
 
+                if (scoresButton != null)
+                {
+                    scoresButton.Click += (sender, e) => {
+                        StartActivity(typeof(ScoresEntry_Code));
+                    };
+                }
+
                 ImageView qImageView = (ImageView)FindViewById<ImageView>(Resource.Id.qStatusImage);
                 qImageView.SetBackgroundResource(Resource.Drawable.Screenshot_20170212_094404);
 

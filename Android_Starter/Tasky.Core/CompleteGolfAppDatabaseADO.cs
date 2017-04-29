@@ -68,8 +68,16 @@ namespace Tasky.Core
                 //var commands = new[] {
                 //    //"DROP TABLE [Holes] ;",
 
-                //    //"CREATE TABLE [CoursePar] (_id INTEGER PRIMARY KEY ASC, CourseID INTEGER, HoleNumber INTEGER, Par INTEGER);"
-                //    "ALTER TABLE [CoursePar] RENAME TO [CourseHoles];"
+                //    "CREATE TABLE [Rounds] (_id INTEGER PRIMARY KEY ASC, CourseTeeID INTEGER, RoundDate NTEXT);",
+                //    "CREATE TABLE [Clubs] (_id INTEGER PRIMARY KEY ASC, ClubName);",
+                //    "CREATE TABLE [Ball] (_id INTEGER PRIMARY KEY ASC, Manufacturer NTEXT, Model NTEXT, Year INTEGER);",
+                //    "CREATE TABLE [ShotType] (_id INTEGER PRIMARY KEY ASC, ShotTypeName NTEXT);",
+                //    "CREATE TABLE [Result] (_id INTEGER PRIMARY KEY ASC, CourseID INTEGER, Result NTEXT);",
+                //    @"CREATE TABLE [Shots] (_id INTEGER PRIMARY KEY ASC, RoundID INTEGER, BallID INTEGER, HolesID INTEGER, ClubID INTEGER
+                //                            , ShotTypeID INTEGER, DistanceFromPinStart INTEGER, DistanceTraveled INTEGER
+                //                            , DistanceFromPinEnd INTEGER, AbsoluteAngleFromTargetLine INTEGER, DirectionFromTargetLine NTEXT
+                //                            , ResultID);"
+                //    //"ALTER TABLE [CoursePar] RENAME TO [CourseHoles];"
                 //};
                 //foreach (var command in commands)
                 //{

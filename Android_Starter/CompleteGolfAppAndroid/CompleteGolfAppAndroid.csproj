@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\CourseDetailsEdit_Code.cs" />
     <Compile Include="Screens\CoursePar_DialogFragment_Code.cs" />
+    <Compile Include="Screens\ScoresEntry_Code.cs" />
     <Compile Include="Screens\CourseTeeDetails_Code.cs" />
     <Compile Include="Screens\HoleDetails_DialogFragment.cs" />
     <Compile Include="Screens\Home_Code.cs" />
@@ -128,6 +129,9 @@
     <AndroidResource Include="Resources\layout\CoursePar_DialogFragmentLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\ScoresEntry_Layout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -183,5 +187,8 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-nodpi\Screenshot_20170225_142535.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-nodpi\ColbertHills.png" />
   </ItemGroup>
 </Project>
