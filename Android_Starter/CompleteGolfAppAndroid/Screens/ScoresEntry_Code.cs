@@ -21,9 +21,10 @@ namespace CompleteGolfAppAndroid.Screens
         CompleteGolfAppAndroid.Adapters.CourseListAdapter courseList;
         IList<Course> courses;
 
-        Button addNewCourseButton;
+        Button btnAddNewRound;
         ListView courseListView;
         Course selectedFromList;
+        LinearLayout linRoundInfo;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -40,8 +41,8 @@ namespace CompleteGolfAppAndroid.Screens
                 // set our layout to be the home screen
                 SetContentView(Resource.Layout.ScoresEntry_Layout);
 
-                addNewCourseButton = FindViewById<Button>(Resource.Id.Courses_Button_AddNew);
-                courseListView = FindViewById<ListView>(Resource.Id.Courses_ListView_CourseList);
+                btnAddNewRound = FindViewById<Button>(Resource.Id.ScoresEntry_Button_AddNew);
+                linRoundInfo = FindViewById<LinearLayout>(Resource.Id.ScoresEntry_LinearLayout_RoundInfo);
                 //courseListView.OnItemClickListener = this;
 
                 //teeListView = FindViewById<ListView>(Resource.Id.TeeList);
@@ -51,15 +52,17 @@ namespace CompleteGolfAppAndroid.Screens
                 // button clicks 
 
                 //wire up add task button handler
-                //if (addNewCourseButton != null)
-                //{
-                //    addNewCourseButton.Click += delegate {
-                //        var activity2 = new Intent(this, typeof(CourseDetailsEdit_Code));
-                //        activity2.PutExtra("CourseID", 0); //Send 0 to identify it as a brand new course.
-                //        StartActivity(activity2);
-                //    };
+                if (btnAddNewRound != null)
+                {
+                    btnAddNewRound.Click += delegate
+                    {
+                        linRoundInfo.Visibility = ViewStates.Invisible;
+                        //var activity2 = new Intent(this, typeof(CourseDetailsEdit_Code));
+                        //activity2.PutExtra("CourseID", 0); //Send 0 to identify it as a brand new course.
+                        //StartActivity(activity2);
+                    };
 
-                //}
+                }
 
                 //courseListView.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs e)
                 //{
@@ -68,7 +71,7 @@ namespace CompleteGolfAppAndroid.Screens
                 //    activity2.PutExtra("CourseID", selectedFromList.ID);
                 //    //activity2.PutExtra("CourseName", selectedFromList.CourseName);
                 //    StartActivity(activity2);
-                    
+
                 //};
 
                 //courseListView.ItemLongClick += delegate (object sender, AdapterView.ItemLongClickEventArgs e)
@@ -85,7 +88,7 @@ namespace CompleteGolfAppAndroid.Screens
                 backgroundImage.SetBackgroundResource(Resource.Drawable.ColbertHills);
 
                 courseListView.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
-                addNewCourseButton.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
+                //addNewCourseButton.SetBackgroundColor(new Color(0x00, 0x65, 0x00));
 
             }
             catch (Exception ex)
