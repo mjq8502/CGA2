@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/ScoresEntry_LinearLayout_AddNew"
         android:layout_width="fill_parent"
-        android:layout_height="200dp"
+        android:layout_height="120dp"
         android:orientation="vertical"
         android:layout_weight="1">
         <Button
@@ -21,22 +21,60 @@
             android:layout_margin="5dp" />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/ScoresEntry_LinearLayout_RoundInfo"
+        android:id="@+id/ScoresEntry_LinearLayout_ChooseCourse"
         android:layout_width="fill_parent"
-        android:layout_height="220dp"
-        android:orientation="vertical"
+        android:layout_height="120dp"
+        android:orientation="horizontal"
         android:visibility="visible"
         android:layout_weight="1"
-        android:layout_below="@+id/ScoresEntry_LinearLayout_AddNew">
+        android:layout_below="@+id/ScoresEntry_LinearLayout_AddNew">>
         <TextView
             android:id="@+id/ScoresEntry_TextView_Course"
             android:text="Course"
-            android:layout_width="fill_parent"
+            android:layout_width="80dp"
             android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/ScoresEntry_TextView_CourseCombo"
+            android:text="CourseCombo"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+      <LinearLayout
+        android:id="@+id/ScoresEntry_LinearLayout_ChooseTee"
+        android:layout_width="fill_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:layout_weight="1"
+        android:layout_below="@+id/ScoresEntry_LinearLayout_ChooseCourse">
         <TextView
             android:id="@+id/ScoresEntry_TextView_Tee"
             android:text="Tee"
-            android:layout_width="fill_parent"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/ScoresEntry_TextView_TeeCombo"
+            android:text="TeeCombo"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+      <LinearLayout
+        android:id="@+id/ScoresEntry_LinearLayout_Test"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:layout_weight="1"
+        android:layout_below="@+id/ScoresEntry_LinearLayout_ChooseTee">
+        <TextView
+            android:id="@+id/ScoresEntry_TextView_Test"
+            android:text="blah"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/ScoresEntry_TextView_Test2"
+            android:text="blah blah"
+            android:layout_width="80dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 <!--<ListView

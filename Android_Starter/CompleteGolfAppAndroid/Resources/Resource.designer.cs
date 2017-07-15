@@ -271,49 +271,67 @@ namespace CompleteGolfAppAndroid
 			public const int ScoresEntry_LinearLayout_AddNew = 2131034174;
 			
 			// aapt resource value: 0x7f050040
-			public const int ScoresEntry_LinearLayout_RoundInfo = 2131034176;
+			public const int ScoresEntry_LinearLayout_ChooseCourse = 2131034176;
+			
+			// aapt resource value: 0x7f050043
+			public const int ScoresEntry_LinearLayout_ChooseTee = 2131034179;
+			
+			// aapt resource value: 0x7f050046
+			public const int ScoresEntry_LinearLayout_Test = 2131034182;
 			
 			// aapt resource value: 0x7f050041
 			public const int ScoresEntry_TextView_Course = 2131034177;
 			
 			// aapt resource value: 0x7f050042
-			public const int ScoresEntry_TextView_Tee = 2131034178;
+			public const int ScoresEntry_TextView_CourseCombo = 2131034178;
 			
-			// aapt resource value: 0x7f05004b
-			public const int TeeListActualYardageText = 2131034187;
+			// aapt resource value: 0x7f050044
+			public const int ScoresEntry_TextView_Tee = 2131034180;
 			
-			// aapt resource value: 0x7f05004a
-			public const int TeeListCourseReportedYardageText = 2131034186;
+			// aapt resource value: 0x7f050045
+			public const int ScoresEntry_TextView_TeeCombo = 2131034181;
 			
-			// aapt resource value: 0x7f050049
-			public const int TeeListNameText = 2131034185;
+			// aapt resource value: 0x7f050047
+			public const int ScoresEntry_TextView_Test = 2131034183;
+			
+			// aapt resource value: 0x7f050048
+			public const int ScoresEntry_TextView_Test2 = 2131034184;
+			
+			// aapt resource value: 0x7f050051
+			public const int TeeListActualYardageText = 2131034193;
+			
+			// aapt resource value: 0x7f050050
+			public const int TeeListCourseReportedYardageText = 2131034192;
+			
+			// aapt resource value: 0x7f05004f
+			public const int TeeListNameText = 2131034191;
 			
 			// aapt resource value: 0x7f050035
 			public const int Tee_TextView = 2131034165;
 			
-			// aapt resource value: 0x7f050047
-			public const int TeesDetail_Button_Cancel = 2131034183;
-			
-			// aapt resource value: 0x7f050046
-			public const int TeesDetail_Button_Delete = 2131034182;
-			
-			// aapt resource value: 0x7f050045
-			public const int TeesDetail_Button_Save = 2131034181;
-			
-			// aapt resource value: 0x7f050044
-			public const int TeesDetail_EditText_TeeValue = 2131034180;
-			
-			// aapt resource value: 0x7f050043
-			public const int TeesDetail_TextView_TeeLabel = 2131034179;
-			
-			// aapt resource value: 0x7f05004e
-			public const int Tees_Button_AddTee = 2131034190;
-			
 			// aapt resource value: 0x7f05004d
-			public const int Tees_ListView_TeeList = 2131034189;
+			public const int TeesDetail_Button_Cancel = 2131034189;
 			
 			// aapt resource value: 0x7f05004c
-			public const int Tees_TextView_Label = 2131034188;
+			public const int TeesDetail_Button_Delete = 2131034188;
+			
+			// aapt resource value: 0x7f05004b
+			public const int TeesDetail_Button_Save = 2131034187;
+			
+			// aapt resource value: 0x7f05004a
+			public const int TeesDetail_EditText_TeeValue = 2131034186;
+			
+			// aapt resource value: 0x7f050049
+			public const int TeesDetail_TextView_TeeLabel = 2131034185;
+			
+			// aapt resource value: 0x7f050054
+			public const int Tees_Button_AddTee = 2131034196;
+			
+			// aapt resource value: 0x7f050053
+			public const int Tees_ListView_TeeList = 2131034195;
+			
+			// aapt resource value: 0x7f050052
+			public const int Tees_TextView_Label = 2131034194;
 			
 			// aapt resource value: 0x7f050036
 			public const int Yards_TextView = 2131034166;
@@ -324,8 +342,8 @@ namespace CompleteGolfAppAndroid
 			// aapt resource value: 0x7f050037
 			public const int lstItemHole = 2131034167;
 			
-			// aapt resource value: 0x7f050048
-			public const int lstItemTee = 2131034184;
+			// aapt resource value: 0x7f05004e
+			public const int lstItemTee = 2131034190;
 			
 			// aapt resource value: 0x7f050039
 			public const int qStatusImage = 2131034169;

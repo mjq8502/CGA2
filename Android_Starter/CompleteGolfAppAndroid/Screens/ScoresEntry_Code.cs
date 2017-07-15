@@ -42,12 +42,12 @@ namespace CompleteGolfAppAndroid.Screens
                 SetContentView(Resource.Layout.ScoresEntry_Layout);
 
                 btnAddNewRound = FindViewById<Button>(Resource.Id.ScoresEntry_Button_AddNew);
-                linRoundInfo = FindViewById<LinearLayout>(Resource.Id.ScoresEntry_LinearLayout_RoundInfo);
+                linRoundInfo = FindViewById<LinearLayout>(Resource.Id.ScoresEntry_LinearLayout_ChooseCourse);
                 //courseListView.OnItemClickListener = this;
 
                 //teeListView = FindViewById<ListView>(Resource.Id.TeeList);
 
-                // find all our controls
+                // find all our controls zz
 
                 // button clicks 
 
@@ -56,7 +56,7 @@ namespace CompleteGolfAppAndroid.Screens
                 {
                     btnAddNewRound.Click += delegate
                     {
-                        linRoundInfo.Visibility = ViewStates.Invisible;
+                        linRoundInfo.Visibility = ViewStates.Gone;
                         //var activity2 = new Intent(this, typeof(CourseDetailsEdit_Code));
                         //activity2.PutExtra("CourseID", 0); //Send 0 to identify it as a brand new course.
                         //StartActivity(activity2);
